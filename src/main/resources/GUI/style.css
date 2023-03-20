@@ -1,0 +1,19 @@
+#bg{
+    -fx-background-image: url("Porsche.png");
+    -fx-background-size: 100% 100%;
+}
+#button
+{
+    -fx-background-color:#3682b5;
+    -fx-background-radius:40px;
+    -fx-effect: dropshadow( three-pass-box , #3682b5 , 10, 0.0 , 0 , 1 );
+    -fx-text-fill: #ffffff;
+}
+#button:hover
+{
+    -fx-background-color:#415989;
+}
+#textfield
+{
+    -fx-background-radius:40px;
+}
