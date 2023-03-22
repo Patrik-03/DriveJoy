@@ -34,7 +34,7 @@ public class SigInController
         userSign.password = password.getText();
         if(database.checkUser(userSign.name, userSign.password))
         {
-            Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
+            Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
             Scene signInScene = new Scene(newScreen);
             Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             signInStage.setScene(signInScene);

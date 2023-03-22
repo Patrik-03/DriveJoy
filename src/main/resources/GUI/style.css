@@ -1,19 +1,84 @@
 #bg{
-    -fx-background-image: url("Porsche.png");
+    -fx-background-image: url("greencar.png");
+    -fx-background-size: 100% 100%;
+}
+#bg2
+{
+    -fx-background-image: url("greencarL.png");
+    -fx-background-size: 100% 100%;
+}
+#bg3
+{
+    -fx-background-image: url("mainBG.png");
     -fx-background-size: 100% 100%;
 }
 #button
 {
-    -fx-background-color:#3682b5;
-    -fx-background-radius:40px;
-    -fx-effect: dropshadow( three-pass-box , #3682b5 , 10, 0.0 , 0 , 1 );
+    -fx-background-color: #e89111;
+    -fx-background-radius:15px;
     -fx-text-fill: #ffffff;
 }
 #button:hover
 {
-    -fx-background-color:#415989;
+    -fx-background-color: #845b24;
+}
+#buttonicon
+{
+    -fx-background-image: url("search.png");
+    -fx-background-color: #e89111;
+    -fx-background-radius:15px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 16px 16px;
+    -fx-text-fill: #ffffff;
+}
+#buttonicon:hover
+{
+    -fx-background-color: #845b24;
 }
 #textfield
 {
-    -fx-background-radius:40px;
+    -fx-background-radius:15px;
+
+}
+#menu
+{
+    -fx-background-color: #e89111;
+    -fx-background-radius:15px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-text-fill: #ffffff;
+}
+#menuitem
+{
+    -fx-background-color: #e89111;
+    -fx-background-radius:15px;
+    -fx-text-fill: #ffffff;
+}
+#menuitem:hover
+{
+    -fx-background-color: #845b24;
+}
+#menubutton
+{
+    -fx-background-color: #e89111;
+    -fx-text-fill: #ffffff;
+}
+#menubutton:hover
+{
+    -fx-background-color: #845b24;
+}
+#routebutton
+{
+    -fx-background-color: transparent;
+}
+#routebutton:hover
+{
+    -fx-background-color: rgba(0, 0, 0, 0.06);
+}
+#searchField
+{
+    -fx-background-color: transparent;
+    -fx-background-radius:15px;
 }

@@ -7,11 +7,11 @@ public class RouteMemory
 {
     File file = new File("RouteMemory.txt");
 
-    public void addRoute(String origin, String destination) throws IOException
+    public void addRoute(String destination) throws IOException
     {
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
         out.newLine();
-        out.write(origin + " " + destination);
+        out.write( destination);
         out.close();
     }
     public boolean checkSaved(String origin, String destination)
@@ -25,7 +25,7 @@ public class RouteMemory
                 while (scan.hasNextLine())
                 {
                     String line = scan.nextLine();
-                    String[] parts = line.split(" ");
+                    String[] parts = line.split(" - ");
                     if (parts[0].equals(origin) && parts[1].equals(destination))
                     {
                         return true;

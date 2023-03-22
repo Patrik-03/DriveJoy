@@ -32,7 +32,7 @@ public class EditorController
         {
             if(EditorRoles.checkID(editorInput.ID) != null)
             {
-                no.setText("Welcome " + EditorRoles.checkID(editorInput.ID));
+                AlertBox.display("Welcome" + " " + EditorRoles.checkID(editorInput.ID));
                 /*Parent newS = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
                 Scene signInScene = new Scene(newS);
                 Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();

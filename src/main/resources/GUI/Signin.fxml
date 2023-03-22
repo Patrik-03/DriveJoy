@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="bg" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SigInController">
+<AnchorPane id="bg2" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SigInController">
    <children>
       <GridPane alignment="TOP_RIGHT" layoutX="68.0" layoutY="483.0" prefHeight="30.0" prefWidth="224.0">
         <columnConstraints>
@@ -17,11 +17,11 @@
          <children>
             <Button id="button" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#signInClick" stylesheets="@style.css" text="Sign in" GridPane.columnIndex="1">
                <font>
-                  <Font name="JetBrains Mono Medium" size="15.0" />
+                  <Font name="Segoe UI" size="15.0" />
                </font></Button>
             <Button id="button" mnemonicParsing="false" onMouseClicked="#backClick" stylesheets="@style.css" text="Back">
                <font>
-                  <Font name="JetBrains Mono Medium" size="15.0" />
+                  <Font name="Segoe UI" size="15.0" />
                </font></Button>
          </children>
       </GridPane>
@@ -29,17 +29,17 @@
          <children>
             <TextField id="textfield" fx:id="username" onAction="#signInClick" prefHeight="30.0" prefWidth="224.0" promptText="Enter username" stylesheets="@style.css">
                <font>
-                  <Font name="JetBrains Mono Medium" size="12.0" />
+                  <Font name="Segoe UI" size="12.0" />
                </font></TextField>
             <PasswordField id="textfield" fx:id="password" onAction="#signInClick" prefHeight="30.0" prefWidth="224.0" promptText="Enter password" stylesheets="@style.css">
                <font>
-                  <Font name="JetBrains Mono Medium" size="12.0" />
+                  <Font name="Segoe UI" size="12.0" />
                </font></PasswordField>
          </children>
       </VBox>
-      <Label layoutX="117.0" layoutY="330.0" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="121.0" layoutY="326.0" text="SIGN IN" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="JetBrains Mono ExtraBold" size="30.0" />
+            <Font name="Segoe UI Black" size="30.0" />
          </font>
       </Label>
       <Label fx:id="wrong" layoutX="68.0" layoutY="370.0" prefHeight="18.0" prefWidth="224.0" textFill="RED" />

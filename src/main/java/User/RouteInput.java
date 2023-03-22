@@ -2,12 +2,10 @@ package User;
 
 public class RouteInput
 {
-    public String destination;
-    public String origin;
+    public String location;
 
-    public RouteInput(String origin, String destination)
+    public RouteInput(String location)
     {
-        this.destination = destination;
-        this.origin = origin;
+        this.location = location;
     }
 }

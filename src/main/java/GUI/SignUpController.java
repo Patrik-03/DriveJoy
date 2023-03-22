@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.controlsfx.control.WorldMapView;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -86,6 +87,11 @@ public class SignUpController
             else
             {
                 database.addUser(userSign.name, userSign.password);
+                Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+                Scene signInScene = new Scene(newScreen);
+                Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                signInStage.setScene(signInScene);
+                signInStage.show();
             }
         }
     }
@@ -93,9 +99,9 @@ public class SignUpController
     protected void onBackClick(MouseEvent event) throws IOException
     {
         Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
-        Scene signInScene = new Scene(newScreen);
-        Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        signInStage.setScene(signInScene);
-        signInStage.show();
+        Scene signUpScene = new Scene(newScreen);
+        Stage signUpStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        signUpStage.setScene(signUpScene);
+        signUpStage.show();
     }
 }
