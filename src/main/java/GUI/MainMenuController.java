@@ -1,13 +1,14 @@
 package GUI;
 
 import User.*;
-import Calculations.*;
+import Routes.*;
 import Editor.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,11 +25,15 @@ public class MainMenuController
     @FXML
     private TextField searchField;
     @FXML
-    private TextField distance;
+    private Label distance;
     @FXML
-    private TextField nameR;
-    DisplayOptions displayOptions = new DisplayOptions();
-    Location location = new Location();
+    private Label nameR;
+    @FXML
+    private Label time;
+    @FXML
+    private Label badge;
+    @FXML
+    private Label recommend;
     @FXML
     protected void signOutClick(ActionEvent event) throws IOException
     {
@@ -59,12 +64,16 @@ public class MainMenuController
     {
         RouteInput routeInput = new RouteInput(searchField.getText());
         routeInput.location = searchField.getText();
-        distance.setText("Distance:" + displayOptions.displayOptions(searchField.getText()));
-        distance.setStyle("-fx-border-color: black");
-        nameR.setText(location.getLocationName(searchField.getText()));
-        nameR.setStyle("-fx-background-color: rgba(0,0,0,0.15)");
+        DisplayOptions displayOptions = new DisplayOptions();
+        displayOptions.getRoutes();
+        distance.setText("Length: " + displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
+        recommend.setText(" Recommended direction:");
+        nameR.setText(" " + displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+        badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
+        badge.setStyle("-fx-background-color: #2696f6;" +"-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
+
         RouteMemory routeMemory = new RouteMemory();
-        routeMemory.addRoute(location.getLocationName(searchField.getText()));
+        routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
     }
     @FXML
     protected void map(ActionEvent event) throws IOException
