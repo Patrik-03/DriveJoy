@@ -17,12 +17,12 @@ public class ChangePassword
     private TextField current;
     @FXML
     private TextField newp;
-    Database Database = new Database();
     @FXML
     protected void changePassword(ActionEvent event)
     {
         try {
-            Database.changeP(current.getText(), newp.getText());
+            Database db = new Database();
+            db.changeP(current.getText(), newp.getText());
             close(event);
         } catch (IOException ex) {
             throw new RuntimeException(ex);

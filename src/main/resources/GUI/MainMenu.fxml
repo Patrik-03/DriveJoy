@@ -12,21 +12,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainMenuController">
+<AnchorPane prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainMenuController">
    <children>
-      <MenuBar id="menu" fx:id="menuBar" layoutX="14.0" layoutY="12.0" prefHeight="29.0" prefWidth="135.0" stylesheets="@style.css">
+      <MenuBar id="menu" fx:id="menuBar" layoutX="14.0" layoutY="12.0" prefHeight="30.0" prefWidth="135.0" stylesheets="@style.css">
         <menus>
           <Menu id="menuitem" mnemonicParsing="false" styleClass="menu-item" text="Menu">
-            <items>
-                  <Menu mnemonicParsing="false" text="History">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
+               <items>
+                  <MenuItem id="menuButton" mnemonicParsing="false" text="History">
                      <graphic>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox id="search" fx:id="history" onMouseClicked="#historyClick" onMouseEntered="#historyClick" prefWidth="150.0" stylesheets="@style.css" />
                      </graphic>
-                  </Menu>
-            </items>
+                  </MenuItem>
+               </items>
           </Menu>
           <Menu id="menuitem" mnemonicParsing="false" text="Profile">
             <items>
@@ -39,10 +36,13 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </MenuBar>
-      <TextField id="textfield" fx:id="searchField" layoutX="156.0" layoutY="12.0" onAction="#searchClick" prefHeight="30.0" prefWidth="158.0" promptText="Where are you?" stylesheets="@style.css" />
+      <TextField id="search" fx:id="searchField" layoutX="161.0" layoutY="12.0" onAction="#searchClick" prefHeight="31.0" prefWidth="185.0" promptText="Where are you?" stylesheets="@style.css">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font></TextField>
       <Button id="buttonicon" layoutX="287.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchClick" prefHeight="29.0" prefWidth="58.0" stylesheets="@style.css" />
       <Separator layoutY="53.0" prefWidth="360.0" />
-      <Button id="routebutton" layoutY="53.0" mnemonicParsing="false" onAction="#map" prefHeight="200.0" prefWidth="360.0" stylesheets="@style.css" />
+      <Button id="routebutton" layoutY="53.0" mnemonicParsing="false" onAction="#map" prefHeight="90.0" prefWidth="360.0" stylesheets="@style.css" />
       <Label fx:id="badge" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="115.0" prefHeight="30.0" prefWidth="45.0">
          <font>
             <Font name="Segoe UI Black" size="12.0" />
@@ -50,7 +50,7 @@
       </Label>
       <Label fx:id="recommend" layoutY="55.0" prefHeight="30.0" prefWidth="360.0">
          <font>
-            <Font name="Segoe UI" size="14.0" />
+            <Font name="Segoe UI Bold" size="14.0" />
          </font>
       </Label>
       <Label fx:id="nameR" layoutY="85.0" prefHeight="30.0" prefWidth="360.0">
@@ -68,5 +68,6 @@
             <Font name="Segoe UI" size="13.0" />
          </font>
       </Label>
+      <Separator layoutY="144.0" prefWidth="360.0" />
    </children>
 </AnchorPane>

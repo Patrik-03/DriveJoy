@@ -20,7 +20,6 @@ import java.util.Objects;
 
 public class SignUpController
 {
-    Database database = new Database();
     @FXML
     private Label exist;
     @FXML
@@ -36,6 +35,7 @@ public class SignUpController
         UserSign userSign = new UserSign(name.getText(), pass.getText());
         userSign.name = name.getText();
         userSign.password = pass.getText();
+        Database database = new Database();
         if (database.checkUserUP(userSign.name))
         {
             exist.setText("User already exists");

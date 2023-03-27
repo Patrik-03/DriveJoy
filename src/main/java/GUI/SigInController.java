@@ -19,7 +19,6 @@ import java.util.Objects;
 
 public class SigInController
 {
-    Database database = new Database();
     @FXML
     private Label wrong;
     @FXML
@@ -32,6 +31,7 @@ public class SigInController
         UserSign userSign = new UserSign(username.getText(), password.getText());
         userSign.name = username.getText();
         userSign.password = password.getText();
+        Database database = new Database();
         if(database.checkUser(userSign.name, userSign.password))
         {
             Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));

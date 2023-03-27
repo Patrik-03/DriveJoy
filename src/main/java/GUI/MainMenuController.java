@@ -8,22 +8,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.controlsfx.control.WorldMapView;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.util.Objects;
+
 public class MainMenuController
 {
     @FXML
     private MenuBar menuBar;
     @FXML
-    private TextField searchField;
+    public TextField searchField;
     @FXML
     private Label distance;
     @FXML
@@ -34,6 +37,9 @@ public class MainMenuController
     private Label badge;
     @FXML
     private Label recommend;
+    @FXML
+    private ChoiceBox<String> history;
+
     @FXML
     protected void signOutClick(ActionEvent event) throws IOException
     {
@@ -53,27 +59,35 @@ public class MainMenuController
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("car.png"))));
-            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
     }
     @FXML
-    protected void searchClick(ActionEvent event) throws IOException
+    protected void searchClick() throws IOException
     {
         RouteInput routeInput = new RouteInput(searchField.getText());
-        routeInput.location = searchField.getText();
+        RouteMemory routeMemory = new RouteMemory();
         DisplayOptions displayOptions = new DisplayOptions();
         displayOptions.getRoutes();
+
+        AutoCompletionBinding<String> autoCompletionBinding = TextFields.bindAutoCompletion(searchField, displayOptions.origin);
+
         distance.setText("Length: " + displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
         recommend.setText(" Recommended direction:");
         nameR.setText(" " + displayOptions.name[displayOptions.getIndex(routeInput.location)]);
         badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
         badge.setStyle("-fx-background-color: #2696f6;" +"-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
-
-        RouteMemory routeMemory = new RouteMemory();
         routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+    }
+    @FXML
+    protected void historyClick()
+    {
+        history.getItems().clear();
+        DisplayOptions displayOptions = new DisplayOptions();
+        displayOptions.getRoutes();
+        history.getItems().addAll(displayOptions.name);
     }
     @FXML
     protected void map(ActionEvent event) throws IOException
