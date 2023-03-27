@@ -2,12 +2,17 @@ package User;
 
 public class UserSign
 {
-    public String name;
-    public String password;
+    public static String name;
+    public static String password;
     public UserSign(String name, String password)
     {
-        this.name = name;
-        this.password = password;
+        UserSign.name = name;
+        UserSign.password = password;
+    }
+
+    public static String getName()
+    {
+        return name;
     }
 }
 

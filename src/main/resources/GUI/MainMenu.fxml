@@ -18,11 +18,15 @@
         <menus>
           <Menu id="menuitem" mnemonicParsing="false" styleClass="menu-item" text="Menu">
                <items>
-                  <MenuItem id="menuButton" mnemonicParsing="false" text="History">
-                     <graphic>
-                        <ChoiceBox id="search" fx:id="history" onMouseClicked="#historyClick" onMouseEntered="#historyClick" prefWidth="150.0" stylesheets="@style.css" />
-                     </graphic>
-                  </MenuItem>
+                  <Menu id="menubutton" mnemonicParsing="false" text="History">
+                    <items>
+                        <MenuItem id="menubutton" mnemonicParsing="false">
+                           <graphic>
+                              <ChoiceBox fx:id="history" onMouseClicked="#historyClick" onMouseEntered="#historyClick" prefWidth="150.0" stylesheets="@style.css" />
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                  </Menu>
                </items>
           </Menu>
           <Menu id="menuitem" mnemonicParsing="false" text="Profile">

@@ -33,11 +33,11 @@ public class EditorController
             if(EditorRoles.checkID(editorInput.ID) != null)
             {
                 AlertBox.display("Welcome" + " " + EditorRoles.checkID(editorInput.ID));
-                /*Parent newS = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
+                Parent newS = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EditorMenu.fxml")));
                 Scene signInScene = new Scene(newS);
                 Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 signInStage.setScene(signInScene);
-                signInStage.show();*/
+                signInStage.show();
             }
             else
             {
@@ -47,7 +47,8 @@ public class EditorController
         }
     }
     @FXML
-    protected void backEClick(MouseEvent event) throws IOException {
+    protected void backEClick(MouseEvent event) throws IOException
+    {
         Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene signInScene = new Scene(newScreen);
         Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();

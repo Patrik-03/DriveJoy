@@ -10,8 +10,6 @@ public class Database
 {
 
     File file = new File("UserInfo.txt");
-    UserSign user = new UserSign("","");
-
 
     public void addUser(String name, String password) throws IOException {
         int hash = password.hashCode();
@@ -89,21 +87,31 @@ public class Database
         scan.close();
     }
     //change password in file
-    public void changeP(String password, String newpassword) throws IOException
-    {
-        String old = "";
+    public void changeP(String password, String newpassword) throws IOException {
+        String username = UserSign.getName(); // get the username of the currently signed-in user
+        String oldContent = "";
         FileReader file = new FileReader("UserInfo.txt");
         Scanner scan = new Scanner(file);
-        while(scan.hasNextLine())
-        {
-            old += scan.nextLine() + " " + System.lineSeparator();
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            if (line.startsWith(username)) { // check if the current line contains the info of the signed-in user
+                String[] parts = line.split("\\s+"); // split the line by whitespace
+                if (parts.length == 2 && parts[1].equals(password)) { // check if the password matches
+                    oldContent += username + " " + newpassword + System.lineSeparator(); // modify the line with new password
+                }
+                else
+                {
+                    oldContent += line + System.lineSeparator(); // keep the original line
+                }
+            } else {
+                oldContent += line + System.lineSeparator(); // keep the original line
+            }
         }
-        int hash = password.hashCode();
-        int newhash = newpassword.hashCode();
-        String newContent = old.replaceAll(String.valueOf(hash), String.valueOf(newhash));
+
         BufferedWriter writer = new BufferedWriter(new FileWriter("UserInfo.txt"));
-        writer.write(newContent);
+        writer.write(oldContent);
         writer.close();
         scan.close();
     }
+
 }

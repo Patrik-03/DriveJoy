@@ -1,29 +1,26 @@
 package GUI;
 
-import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class AppUI extends Application
+public class EditorMenuController
 {
-    @Override
-    public void start(Stage stage) throws IOException
+    @FXML
+    protected void signOutClick(ActionEvent event) throws IOException
     {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.getIcons().add(new Image(Objects.requireNonNull(AppUI.class.getResourceAsStream("car.png"))));
         stage.setTitle("Drive Joy");
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }

@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.controlsfx.control.WorldMapView;
-import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
@@ -72,7 +71,7 @@ public class MainMenuController
         DisplayOptions displayOptions = new DisplayOptions();
         displayOptions.getRoutes();
 
-        AutoCompletionBinding<String> autoCompletionBinding = TextFields.bindAutoCompletion(searchField, displayOptions.origin);
+        TextFields.bindAutoCompletion(searchField, displayOptions.origin);
 
         distance.setText("Length: " + displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
         recommend.setText(" Recommended direction:");

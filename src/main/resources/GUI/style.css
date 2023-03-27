@@ -69,6 +69,16 @@
 {
     -fx-background-color: #845b24;
 }
+#menubutton:default
+{
+    -fx-background-color: #e89111;
+    -fx-text-fill: #000000;
+}
+#menubutton:default:hover
+{
+    -fx-background-color: #845b24;
+    -fx-text-fill: #000000;
+}
 #routebutton
 {
     -fx-background-color: transparent;
