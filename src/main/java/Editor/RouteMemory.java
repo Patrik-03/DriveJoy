@@ -61,22 +61,21 @@ public class RouteMemory
         }
         return rows;
     }
-    public String[] getRoutes()
+    public String getName(int i)
     {
-        String[] locations = new String[rows()];
+        String[] name = new String[rows()];
         if(file.exists())
         {
             try
             {
                 FileReader reader = new FileReader(file);
                 Scanner scan = new Scanner(reader);
-                int i = 0;
+                int j = 0;
                 while (scan.hasNextLine())
                 {
                     String line = scan.nextLine();
-                    String[] parts = line.split(" - ");
-                    locations[i] = parts[3];
-                    i++;
+                    name[j] = line;
+                    j++;
                 }
             }
             catch(IOException ex)
@@ -84,6 +83,6 @@ public class RouteMemory
                 ex.printStackTrace();
             }
         }
-        return locations;
+        return name[i];
     }
 }

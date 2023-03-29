@@ -14,5 +14,9 @@ public class UserSign
     {
         return name;
     }
+    public static String getPassword()
+    {
+        return password;
+    }
 }
 

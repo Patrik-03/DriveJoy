@@ -9,7 +9,7 @@
 }
 #bg3
 {
-    -fx-background-image: url("mainBG.png");
+    -fx-background-image: url("Black_colour.jpg");
     -fx-background-size: 100% 100%;
 }
 #button
@@ -79,6 +79,7 @@
     -fx-background-color: #845b24;
     -fx-text-fill: #000000;
 }
+
 #routebutton
 {
     -fx-background-color: transparent;
@@ -93,4 +94,31 @@
     -fx-background-radius:15px;
     -fx-text-fill: black;
 }
+.bubble {
+     position: relative;
+     background: #e89211;
+     color: #FFFFFF;
+     font-family: Arial;
+     font-size: 20px;
+     line-height: 120px;
+     text-align: center;
+     width: 250px;
+     height: 120px;
+     border-radius: 10px;
+     padding: 0px;
+ }
+.bubble:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    background-color: #e89211;
+    border-width: 0 20px 20px;
+    top: -20px;
+    left: 50%;
+    margin-left: -20px;
+}
+
 

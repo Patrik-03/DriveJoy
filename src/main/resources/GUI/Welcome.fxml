@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WelcomeController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WelcomeController">
    <children>
       <GridPane layoutX="118.0" layoutY="314.0" prefHeight="127.0" prefWidth="124.0">
         <columnConstraints>
@@ -23,11 +20,17 @@
                <font>
                   <Font name="Segoe UI" size="22.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button id="button" mnemonicParsing="false" onAction="#onSignupButtonClick" stylesheets="@style.css" text="Sign up" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="Segoe UI" size="22.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
@@ -39,6 +42,9 @@
       <Button id="button" layoutX="14.0" layoutY="591.0" mnemonicParsing="false" onAction="#onEditorButtonClick" stylesheets="@style.css" text="Editor">
          <font>
             <Font name="Segoe UI" size="12.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -18,11 +19,17 @@
             <Button id="button" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#signInClick" stylesheets="@style.css" text="Sign in" GridPane.columnIndex="1">
                <font>
                   <Font name="Segoe UI" size="15.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Button id="button" mnemonicParsing="false" onMouseClicked="#backClick" stylesheets="@style.css" text="Back">
                <font>
                   <Font name="Segoe UI" size="15.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </GridPane>
       <VBox layoutX="68.0" layoutY="399.0" prefWidth="224.0" spacing="10.0">

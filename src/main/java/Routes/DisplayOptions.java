@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class DisplayOptions
 {
+    public String[] image;
+
     public int rows()
     {
         int i = 0;
