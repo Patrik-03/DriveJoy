@@ -1,15 +1,10 @@
 package User;
 
-public class Vehicle
+public class Motorbike extends Vehicle
 {
-    String type;
-    public void setType(String type)
+    public Motorbike()
     {
-        this.type = type;
-    }
-    public String getType()
-    {
-        return type;
+        super();
     }
     public boolean set()
     {

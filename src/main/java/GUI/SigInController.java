@@ -24,17 +24,20 @@ public class SigInController
     @FXML
     private TextField username;
     @FXML
-    private PasswordField password;
+    private TextField password;
     @FXML
     protected void signInClick(MouseEvent event) throws IOException
     {
-        UserSign userSign = new UserSign(username.getText(), password.getText());
-        userSign.name = username.getText();
-        userSign.password = password.getText();
+        UserSign userSign = new UserSign();
+        userSign.setName(username.getText());
+        userSign.setPassword(password.getText());
         Database database = new Database();
-        if(database.checkUser(userSign.name, userSign.password))
+        if(database.checkUser(userSign.getName(), userSign.getPassword()))
         {
-            Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+            Parent newScreen = loader.load();
+            MainMenuController mainMenuController = loader.getController();
+            mainMenuController.setUserName(userSign.getName(), userSign.getPassword());
             Scene signInScene = new Scene(newScreen);
             Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             signInStage.setScene(signInScene);

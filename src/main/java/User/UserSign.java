@@ -2,21 +2,25 @@ package User;
 
 public class UserSign
 {
-    public static String name;
-    public static String password;
-    public UserSign(String name, String password)
-    {
-        UserSign.name = name;
-        UserSign.password = password;
+    public String name;
+    public String password;
+
+    public UserSign() {
     }
 
-    public static String getName()
+    public String getName()
     {
         return name;
     }
-    public static String getPassword()
+    public String getPassword()
     {
         return password;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

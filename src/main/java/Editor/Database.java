@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class Database
 {
-
     File file = new File("UserInfo.txt");
 
-    public void addUser(String name, String password) throws IOException {
+    public void addUser(String name, String password) throws IOException
+    {
         int hash = password.hashCode();
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
         out.newLine();
@@ -19,9 +19,12 @@ public class Database
         out.close();
     }
 
-    public boolean checkUser(String name, String password) {
-        if (file.exists()) {
-            try {
+    public boolean checkUser(String name, String password)
+    {
+        if (file.exists())
+        {
+            try
+            {
                 FileReader reader = new FileReader(file);
                 Scanner scan = new Scanner(reader);
                 while (scan.hasNextLine()) {
@@ -40,15 +43,20 @@ public class Database
                         return false;
                     }
                 }
-            } catch (IOException ex) {
+            }
+            catch (IOException ex)
+            {
                 ex.printStackTrace();
             }
         }
         return false;
     }
-    public boolean checkUserUP(String name) {
-        if (file.exists()) {
-            try {
+    public boolean checkUserUP(String name)
+    {
+        if (file.exists())
+        {
+            try
+            {
                 FileReader reader = new FileReader(file);
                 Scanner scan = new Scanner(reader);
                 while (scan.hasNextLine()) {
@@ -63,7 +71,9 @@ public class Database
                         return false;
                     }
                 }
-            } catch (IOException ex) {
+            }
+            catch (IOException ex)
+            {
                 ex.printStackTrace();
             }
         }
@@ -87,27 +97,36 @@ public class Database
         scan.close();
     }
     //change password in file
-    public void changeP(String password, String newpassword) throws IOException {
-        String username = UserSign.getName(); // get the username of the currently signed-in user
+    public void changeP(String name, String password, String newpassword) throws IOException
+    {
         String oldContent = "";
         FileReader file = new FileReader("UserInfo.txt");
         Scanner scan = new Scanner(file);
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            if (line.startsWith(username)) { // check if the current line contains the info of the signed-in user
+        while (scan.hasNextLine())
+        {
+            String line = scan.nextLine(); // read the current line
+            if (line.startsWith(name))
+            { // check if the current line contains the info of the signed-in user
                 String[] parts = line.split("\\s+"); // split the line by whitespace
-                if (parts.length == 2 && parts[1].equals(password)) { // check if the password matches
-                    oldContent += username + " " + newpassword + System.lineSeparator(); // modify the line with new password
+                int hash = password.hashCode();
+                int old = Integer.parseInt(parts[1]);
+                if (parts.length == 2 && old == hash) //check if the passwords matches
+                {
+                    oldContent += name + " " + newpassword.hashCode();
                 }
                 else
                 {
-                    oldContent += line + System.lineSeparator(); // keep the original line
+                    oldContent += line; // keep the original line
                 }
-            } else {
-                oldContent += line + System.lineSeparator(); // keep the original line
+            }
+            else
+            {
+                oldContent += line; // keep the original line
+            }
+            if (scan.hasNextLine()) {
+                oldContent += System.lineSeparator();
             }
         }
-
         BufferedWriter writer = new BufferedWriter(new FileWriter("UserInfo.txt"));
         writer.write(oldContent);
         writer.close();

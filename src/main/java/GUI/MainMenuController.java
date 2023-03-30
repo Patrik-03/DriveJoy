@@ -15,6 +15,7 @@ import org.controlsfx.control.textfield.TextFields;
 import java.io.IOException;
 import java.util.Objects;
 
+
 public class MainMenuController
 {
     @FXML
@@ -39,14 +40,24 @@ public class MainMenuController
     private MenuItem car;
     @FXML
     private MenuItem motorbike;
-    Vehicle vehicle1 = new Vehicle(UserSign.getName(), UserSign.getPassword());
+    Car c = new Car();
+    Motorbike m = new Motorbike();
+
+    UserSign user;
+
+    public void setUserName(String username, String password)
+    {
+        user = new UserSign();
+        user.setName(username);
+        user.setPassword(password);
+    }
 
     public void initialize()
     {
-        DisplayOptions displayOptions = new DisplayOptions();
-        displayOptions.getRoutes();
-        history();
-        TextFields.bindAutoCompletion(searchField, displayOptions.origin);
+        DisplayOptions displayOptions = new DisplayOptions(); //create object
+        displayOptions.getRoutes(); //get routes from database
+        historyClick(); //history menu
+        TextFields.bindAutoCompletion(searchField, displayOptions.origin); //autocomplete
     }
     @FXML
     protected void signOutClick() throws IOException
@@ -61,14 +72,20 @@ public class MainMenuController
     @FXML
     protected void changeP()
     {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChangePassword.fxml")));
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangePassword.fxml"));
+            Parent root = loader.load();
+            ChangePassword changePasswordController = loader.getController();
+            changePasswordController.setUserName(user.getName(), user.getPassword());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("car.png"))));
             stage.show();
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             throw new RuntimeException(ex);
         }
     }
@@ -80,10 +97,11 @@ public class MainMenuController
         DisplayOptions displayOptions = new DisplayOptions();
         displayOptions.getRoutes();
 
-        if(vehicle1.set())
+        if(c.set() || m.set())
         {
             distance.setText("Length: " + displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
             recommend.setText(" Recommended direction:");
+            recommend.setStyle("-fx-text-fill: black");
             nameR.setText(" " + displayOptions.name[displayOptions.getIndex(routeInput.location)]);
             badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
             badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
@@ -117,32 +135,15 @@ public class MainMenuController
         }
     }
     @FXML
-    public void history()
-    {
-        historyClick();
-    }
-    @FXML
     protected void setCar()
     {
-        vehicle1 = new Vehicle(UserSign.getName(), UserSign.getPassword(), "Car");
-        vehicle.setText(vehicle1.getType());
+        c.setType(car.getText());
+        vehicle.setText(c.getType());
     }
     @FXML
     protected void setMotorbike()
     {
-        vehicle1 = new Vehicle(UserSign.getName(), UserSign.getPassword(), "Motorbike");
-        vehicle.setText(vehicle1.getType());
-    }
-    public String getType()
-    {
-        if (vehicle.getText().equals(vehicle1.getType()))
-        {
-            vehicle1 = new Vehicle(UserSign.getName(), UserSign.getPassword(), vehicle.getText());
-            return vehicle.getText();
-        }
-        else
-        {
-            return null;
-        }
+        m.setType(motorbike.getText());
+        vehicle.setText(m.getType());
     }
 }

@@ -9,11 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.controlsfx.control.WorldMapView;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -32,9 +30,9 @@ public class SignUpController
     @FXML
     protected void onSignUpClick(MouseEvent event) throws IOException
     {
-        UserSign userSign = new UserSign(name.getText(), pass.getText());
-        userSign.name = name.getText();
-        userSign.password = pass.getText();
+        UserSign userSign = new UserSign();
+        userSign.setName(name.getText());
+        userSign.setPassword(pass.getText());
         Database database = new Database();
         if (database.checkUserUP(userSign.name))
         {
@@ -87,7 +85,10 @@ public class SignUpController
             else
             {
                 database.addUser(userSign.name, userSign.password);
-                Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+                Parent newScreen = loader.load();
+                MainMenuController controller = loader.getController();
+                controller.setUserName(userSign.name, userSign.password);
                 Scene signInScene = new Scene(newScreen);
                 Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 signInStage.setScene(signInScene);

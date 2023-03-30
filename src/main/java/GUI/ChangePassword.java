@@ -17,14 +17,24 @@ public class ChangePassword
     private TextField current;
     @FXML
     private TextField newp;
+    Database db = new Database();
+    UserSign userSign;
+    public void setUserName(String name, String password)
+    {
+        userSign = new UserSign();
+        userSign.setName(name);
+        userSign.setPassword(password);
+    }
     @FXML
     protected void changePassword(ActionEvent event)
     {
-        try {
-            Database db = new Database();
-            db.changeP(current.getText(), newp.getText());
+        try
+        {
+            db.changeP(userSign.getName(), current.getText(), newp.getText());
             close(event);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             throw new RuntimeException(ex);
         }
     }
