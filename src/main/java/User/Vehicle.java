@@ -1,5 +1,8 @@
 package User;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Vehicle
 {
     String type;
@@ -21,5 +24,11 @@ public class Vehicle
         {
             return true;
         }
+    }
+    public Image setGarage(Image image)
+    {
+        ImageView imageView = new ImageView();
+        imageView.setImage(image);
+        return image;
     }
 }

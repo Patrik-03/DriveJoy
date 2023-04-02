@@ -18,7 +18,7 @@ public class AppUI extends Application
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(Objects.requireNonNull(AppUI.class.getResourceAsStream("car.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(AppUI.class.getResourceAsStream("road.png"))));
         stage.setTitle("Drive Joy");
         stage.show();
     }

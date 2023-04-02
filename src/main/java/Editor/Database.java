@@ -1,7 +1,5 @@
 package Editor;
 
-import User.UserSign;
-
 import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;

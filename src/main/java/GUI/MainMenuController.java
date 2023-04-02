@@ -9,12 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.util.Objects;
-
 
 public class MainMenuController
 {
@@ -27,11 +27,13 @@ public class MainMenuController
     @FXML
     private Label nameR;
     @FXML
-    private Label time;
-    @FXML
     private Label badge;
     @FXML
     private Label recommend;
+    @FXML
+    private Label type;
+    @FXML
+    private Label curves;
     @FXML
     private Menu latest;
     @FXML
@@ -40,11 +42,19 @@ public class MainMenuController
     private MenuItem car;
     @FXML
     private MenuItem motorbike;
+    @FXML
+    public ImageView image;
+    @FXML
+    private ImageView curvesNum;
+    @FXML
+    private ImageView routeBadge;
+    @FXML
+    private ImageView distanceI;
+    @FXML
+    private ImageView routeI;
     Car c = new Car();
     Motorbike m = new Motorbike();
-
     UserSign user;
-
     public void setUserName(String username, String password)
     {
         user = new UserSign();
@@ -57,6 +67,9 @@ public class MainMenuController
         DisplayOptions displayOptions = new DisplayOptions(); //create object
         displayOptions.getRoutes(); //get routes from database
         historyClick(); //history menu
+        //set garage image
+        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage-open.png"))));
+
         TextFields.bindAutoCompletion(searchField, displayOptions.origin); //autocomplete
     }
     @FXML
@@ -81,7 +94,7 @@ public class MainMenuController
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("car.png"))));
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
             stage.show();
         }
         catch (IOException ex)
@@ -97,20 +110,35 @@ public class MainMenuController
         DisplayOptions displayOptions = new DisplayOptions();
         displayOptions.getRoutes();
 
-        if(c.set() || m.set())
+        if(searchField.getText().equals(""))
         {
-            distance.setText("Length: " + displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
-            recommend.setText(" Recommended direction:");
-            recommend.setStyle("-fx-text-fill: black");
-            nameR.setText(" " + displayOptions.name[displayOptions.getIndex(routeInput.location)]);
-            badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
-            badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
-            routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+            type.setText("Please enter a location");
+            type.setStyle("-fx-text-fill: red");
         }
         else
         {
-            recommend.setText(" Please select a vehicle");
-            recommend.setStyle("-fx-text-fill: #ff0000;");
+            if (c.set() || m.set())
+            {
+                distance.setText(displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
+                nameR.setText(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+                badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
+                badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
+                curves.setText("Curves: ");
+                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(c.getType()))
+                    type.setText("Your type of vehicle will give you the best experience on this route");
+                else
+                    type.setText("You will have better experience with a different type of vehicle");
+                routeI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("tracking.png"))));
+                distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
+                routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
+                curvesNum.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("curved-lines.png"))));
+                routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+            }
+            else
+            {
+                type.setText(" Please select a vehicle");
+                type.setStyle("-fx-text-fill: #ff0000;");
+            }
         }
     }
     @FXML
@@ -138,12 +166,14 @@ public class MainMenuController
     protected void setCar()
     {
         c.setType(car.getText());
+        image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("ferrari.png")))));
         vehicle.setText(c.getType());
     }
     @FXML
     protected void setMotorbike()
     {
         m.setType(motorbike.getText());
+        image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
     }
 }

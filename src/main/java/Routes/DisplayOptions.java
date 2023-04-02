@@ -35,6 +35,7 @@ public class DisplayOptions
     public String[] name = new String[rows()];
     public String[] distance = new String[rows()];
     public String[] badge = new String[rows()];
+    public String[] type = new String[rows()];
 
     public void getRoutes()
     {
@@ -55,6 +56,7 @@ public class DisplayOptions
                     name[i] = parts[2];
                     distance[i] = parts[3];
                     badge[i] = parts[4];
+                    type[i] = parts[5];
                     i++;
                 }
             }

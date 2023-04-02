@@ -1,5 +1,7 @@
 package User;
 
+import javafx.scene.image.Image;
+
 public class Car extends Vehicle
 {
     public Car()
@@ -16,5 +18,11 @@ public class Car extends Vehicle
         {
             return true;
         }
+    }
+    @Override
+    public Image setGarage(Image image)
+    {
+        super.setGarage(image);
+        return image;
     }
 }
