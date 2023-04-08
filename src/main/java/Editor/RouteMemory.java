@@ -14,31 +14,6 @@ public class RouteMemory
         out.write( destination);
         out.close();
     }
-    public boolean checkSaved(String origin, String destination)
-    {
-        if(file.exists())
-        {
-            try
-            {
-                FileReader reader = new FileReader(file);
-                Scanner scan = new Scanner(reader);
-                while (scan.hasNextLine())
-                {
-                    String line = scan.nextLine();
-                    String[] parts = line.split(" - ");
-                    if (parts[0].equals(origin) && parts[1].equals(destination))
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch(IOException ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-        return false;
-    }
     public int rows()
     {
         int rows = 0;

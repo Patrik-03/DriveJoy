@@ -10,19 +10,17 @@ public class Car extends Vehicle
     }
     public boolean set()
     {
-        if (type == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return super.set();
     }
     @Override
     public Image setGarage(Image image)
     {
         super.setGarage(image);
         return image;
+    }
+    @Override
+    public void setType(String car)
+    {
+        super.setType(car);
     }
 }

@@ -29,11 +29,11 @@ public class MainMenuController
     @FXML
     private Label badge;
     @FXML
-    private Label recommend;
-    @FXML
     private Label type;
     @FXML
     private Label curves;
+    @FXML
+    private Label welcome;
     @FXML
     private Menu latest;
     @FXML
@@ -60,16 +60,16 @@ public class MainMenuController
         user = new UserSign();
         user.setName(username);
         user.setPassword(password);
+        welcome.setText("Welcome back in Drive Joy, " + user.getName() + "!");
+        welcome.setStyle("-fx-wrap-text: true");
     }
-
     public void initialize()
     {
         DisplayOptions displayOptions = new DisplayOptions(); //create object
         displayOptions.getRoutes(); //get routes from database
         historyClick(); //history menu
         //set garage image
-        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage-open.png"))));
-
+        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png"))));
         TextFields.bindAutoCompletion(searchField, displayOptions.origin); //autocomplete
     }
     @FXML
@@ -108,9 +108,14 @@ public class MainMenuController
         RouteInput routeInput = new RouteInput(searchField.getText());
         RouteMemory routeMemory = new RouteMemory();
         DisplayOptions displayOptions = new DisplayOptions();
-        displayOptions.getRoutes();
 
-        if(searchField.getText().equals(""))
+        displayOptions.getRoutes();
+        type.setText("");
+        if(!displayOptions.checkRoute(searchField.getText()))
+        {
+            type.setText("This location is currently not available");
+        }
+        else if(searchField.getText().equals(""))
         {
             type.setText("Please enter a location");
             type.setStyle("-fx-text-fill: red");
@@ -124,10 +129,14 @@ public class MainMenuController
                 badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
                 badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
                 curves.setText("Curves: ");
-                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(c.getType()))
-                    type.setText("Your type of vehicle will give you the best experience on this route");
+                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(c.getType()) || displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(m.getType()))
+                {
+                    type.setText("Your vehicle is perfect for this route");
+                }
                 else
+                {
                     type.setText("You will have better experience with a different type of vehicle");
+                }
                 routeI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("tracking.png"))));
                 distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
                 routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
@@ -166,13 +175,15 @@ public class MainMenuController
     protected void setCar()
     {
         c.setType(car.getText());
-        image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("ferrari.png")))));
+        m.setType("");
+        image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
         vehicle.setText(c.getType());
     }
     @FXML
     protected void setMotorbike()
     {
         m.setType(motorbike.getText());
+        c.setType("");
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
     }

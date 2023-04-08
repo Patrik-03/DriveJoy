@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class DisplayOptions
 {
-    public String[] image;
-
     public int rows()
     {
         int i = 0;
@@ -77,5 +75,17 @@ public class DisplayOptions
             }
         }
         return i;
+    }
+    public boolean checkRoute(String origin)
+    {
+        int i;
+        for (i = 0; i < rows(); i++)
+        {
+            if(this.origin[i].equals(origin))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

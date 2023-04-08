@@ -6,6 +6,10 @@ import javafx.scene.image.ImageView;
 public class Vehicle
 {
     String type;
+    public Vehicle()
+    {
+        this.type = null;
+    }
     public void setType(String type)
     {
         this.type = type;
@@ -16,14 +20,7 @@ public class Vehicle
     }
     public boolean set()
     {
-        if (type == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return type != null;
     }
     public Image setGarage(Image image)
     {

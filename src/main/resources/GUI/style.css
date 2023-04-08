@@ -12,6 +12,13 @@
     -fx-background-color: white;
     -fx-background-size: 100% 100%;
 }
+#bg4
+{
+    -fx-background-image: url("road-clipart-transparent-9.png");
+    -fx-background-size: 100%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 0px 385px;
+}
 #button
 {
     -fx-background-color: #e89111;
@@ -100,6 +107,11 @@
 #separator
 {
     -fx-background-color: #afafaf;
+}
+#vehicleImage
+{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center bottom;
 }
 
 
