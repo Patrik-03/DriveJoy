@@ -1,0 +1,6 @@
+Piešťany -> Topoľčany Vehicle: Car
+Pezinok -> Malacky Vehicle: Motorbike
+Pezinok -> Malacky Vehicle: Motorbike
+Pezinok -> Malacky Vehicle: Car
+Hnúšťa -> Ratková Vehicle: Car
+Pezinok -> Malacky Vehicle: Motorbike
