@@ -19,6 +19,13 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 0px 385px;
 }
+#bgGO
+{
+    -fx-background-image: url("GO.png");
+    -fx-background-size: 430px 430px;
+    -fx-background-position: center 0px;
+    -fx-background-repeat: no-repeat;
+}
 #button
 {
     -fx-background-color: #e89111;

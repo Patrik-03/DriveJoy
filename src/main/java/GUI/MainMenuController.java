@@ -52,9 +52,11 @@ public class MainMenuController
     private ImageView distanceI;
     @FXML
     private ImageView routeI;
-    Car c = new Car();
-    Motorbike m = new Motorbike();
+    Vehicle v = new Vehicle();
     UserSign user;
+    @FXML
+    private Button go;
+
     public void setUserName(String username, String password)
     {
         user = new UserSign();
@@ -68,19 +70,20 @@ public class MainMenuController
         DisplayOptions displayOptions = new DisplayOptions(); //create object
         displayOptions.getRoutes(); //get routes from database
         historyClick(); //history menu
-        //set garage image
-        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png"))));
+        //make go button invisible
+        go.setVisible(false);
+        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png")))); //set garage image
         TextFields.bindAutoCompletion(searchField, displayOptions.origin); //autocomplete
     }
     @FXML
     protected void signOutClick() throws IOException
     {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) menuBar.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Drive Joy");
-        stage.show();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml"))); //load fxml
+        Scene scene = new Scene(root); //create scene
+        Stage stage = (Stage) menuBar.getScene().getWindow(); //get stage
+        stage.setScene(scene); //set scene
+        stage.setTitle("Drive Joy"); //set title
+        stage.show(); //show stage
     }
     @FXML
     protected void changeP()
@@ -122,26 +125,29 @@ public class MainMenuController
         }
         else
         {
-            if (c.set() || m.set())
+            if (v.set())
             {
                 distance.setText(displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
                 nameR.setText(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
                 badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
                 badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
                 curves.setText("Curves: ");
-                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(c.getType()) || displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(m.getType()))
+                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(v.getType()))
                 {
                     type.setText("Your vehicle is perfect for this route");
+                    type.setStyle("-fx-text-fill: #00ff00;");
                 }
                 else
                 {
                     type.setText("You will have better experience with a different type of vehicle");
+                    type.setStyle("-fx-text-fill: #000000;");
                 }
                 routeI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("tracking.png"))));
                 distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
                 routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
                 curvesNum.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("curved-lines.png"))));
-                routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
+                routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)] + " Vehicle: " + v.getType());
+                go.setVisible(true);
             }
             else
             {
@@ -161,11 +167,23 @@ public class MainMenuController
             MenuItem menuItem = new MenuItem(routeMemory.getName(i));
             latest.getItems().add(menuItem);
             String[] origin = menuItem.getText().split(" -> ");
+            String[] vehicle = menuItem.getText().split(" Vehicle: ");
             menuItem.setOnAction(event1 -> {
                 searchField.setText(origin[0]);
-                try {
+                if(vehicle[1].equals("Car"))
+                {
+                    setCar();
+                }
+                else
+                {
+                    setMotorbike();
+                }
+                try
+                {
                     searchClick();
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             });
@@ -174,17 +192,37 @@ public class MainMenuController
     @FXML
     protected void setCar()
     {
+        Car c = new Car();
         c.setType(car.getText());
-        m.setType("");
+        v.setType(c.getType());
         image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
         vehicle.setText(c.getType());
     }
     @FXML
     protected void setMotorbike()
     {
+        Motorbike m = new Motorbike();
         m.setType(motorbike.getText());
-        c.setType("");
+        v.setType(m.getType());
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
+    }
+    @FXML
+    protected void go()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GO.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
+            stage.show();
+        }
+        catch (IOException ex)
+        {
+            throw new RuntimeException(ex);
+        }
     }
 }

@@ -81,5 +81,10 @@
             <Font name="Segoe UI Bold" size="22.0" />
          </font>
       </Label>
+      <Button id="button" fx:id="go" layoutX="144.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#go" prefHeight="31.0" prefWidth="70.0" stylesheets="@style.css" text="GO!" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

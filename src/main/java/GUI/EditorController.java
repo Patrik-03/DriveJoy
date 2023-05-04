@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import Exception.*;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -21,30 +22,17 @@ public class EditorController
     @FXML
     private Label no;
     @FXML
-    protected void submitClick(MouseEvent event) throws IOException {
-        EditorInput editorInput = new EditorInput(id.getText());
-        editorInput.ID = id.getText();
-        if(id.getText().isEmpty())
-        {
-            no.setText("Please enter the ID");
-        }
-        else
-        {
-            if(EditorRoles.checkID(editorInput.ID) != null)
-            {
-                AlertBox.display("Welcome" + " " + EditorRoles.checkID(editorInput.ID));
-                Parent newS = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EditorMenu.fxml")));
-                Scene signInScene = new Scene(newS);
-                Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                signInStage.setScene(signInScene);
-                signInStage.show();
-            }
-            else
-            {
-                no.setText("Incorrect ID");
-            }
+    protected void submitClick(MouseEvent event) throws IOException, WrongIdException
+    {
+        EditorRoles editorRoles = new EditorRoles(id.getText());
+        editorRoles.checkID();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditorMenu.fxml"));
+        Parent newScreen = loader.load();
+        Scene signInScene = new Scene(newScreen);
+        Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        signInStage.setScene(signInScene);
+        signInStage.show();
 
-        }
     }
     @FXML
     protected void backEClick(MouseEvent event) throws IOException

@@ -1,16 +1,27 @@
 package Editor;
-public class EditorRoles
+import Exception.WrongIdException;
+import java.util.Objects;
+
+public class EditorRoles extends EditorInput
 {
-    public static String checkID(String id)
+    String ID;
+    public String name;
+    Editor editor;
+    public EditorRoles(String id)
     {
-        String[] editors = {"Admin", "Editor"};
-        String[] ID = {"1", "2"};
-        for (int i = 0; i < ID.length; i++)
+        super(id);
+        this.ID = id;
+        this.editor = new Editor();
+    }
+    public void checkID() throws WrongIdException
+    {
+        if(Objects.equals(super.getID(), editor.getID()))
         {
-            if (ID[i].equals(id)) {
-                return editors[i];
-            }
+            this.name = editor.getName();
         }
-        return null;
+        else
+        {
+            throw new WrongIdException("Wrong ID");
+        }
     }
 }

@@ -10,8 +10,8 @@ public class RouteMemory
     public void addRoute(String destination) throws IOException
     {
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
-        out.newLine();
         out.write( destination);
+        out.newLine();
         out.close();
     }
     public int rows()
