@@ -3,13 +3,11 @@ package Icons;
 import User.Vehicle;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SetIcons implements java.io.Serializable
 {
-	GoIcons goIcons = new GoIcons();
 	private String vehicleType;
+	GO go = new GoIcons();
 	public SetIcons(Vehicle vehicle) throws IOException, ClassNotFoundException
 	{
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -27,10 +25,16 @@ public class SetIcons implements java.io.Serializable
 	{
 		return vehicleType;
 	}
-
 	public void setVehicleType(String vehicleType)
 	{
 		this.vehicleType = vehicleType;
 	}
-
+	public void setIcons()
+	{
+		go.checkType(vehicleType);
+	}
+	public String getIcon()
+	{
+		return go.random(getVehicleType());
+	}
 }

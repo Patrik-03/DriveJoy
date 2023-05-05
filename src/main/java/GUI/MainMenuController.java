@@ -1,5 +1,7 @@
 package GUI;
 
+import Icons.GO;
+import Icons.GoIcons;
 import Icons.SetIcons;
 import User.*;
 import Routes.*;
@@ -55,6 +57,7 @@ public class MainMenuController
     private ImageView routeI;
     Vehicle v = new Vehicle();
     UserSign user;
+    String veh;
     @FXML
     private Button go;
 
@@ -214,6 +217,8 @@ public class MainMenuController
         c.setType(car.getText());
         v.setType(c.getType());
         SetIcons setIcons = new SetIcons(v);
+        setIcons.setIcons();
+        veh = setIcons.getIcon();
         image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
         vehicle.setText(c.getType());
     }
@@ -224,6 +229,8 @@ public class MainMenuController
         m.setType(motorbike.getText());
         v.setType(m.getType());
         SetIcons setIcons = new SetIcons(v);
+        setIcons.setIcons();
+        veh = setIcons.getIcon();
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
     }
@@ -237,12 +244,13 @@ public class MainMenuController
             GoController goController = loader.getController();
             goController.setStart(searchField.getText());
             goController.setDest(nameR.getText().split(" -> ")[0].equals(searchField.getText()) ? nameR.getText().split(" -> ")[1] : nameR.getText().split(" -> ")[0]);
-            goController.setVehicle(new Image(Objects.requireNonNull(getClass().getResourceAsStream("lambo.png"))));
+            goController.setVehicle(new Image(Objects.requireNonNull(getClass().getResourceAsStream(veh))));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
             stage.show();
+
             Thread thread = new Thread(goController.animate());
             thread.start();
         }

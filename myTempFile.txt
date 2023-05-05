@@ -81,4 +81,3 @@ Pezinok -> Malacky Vehicle: Motorbike
 Pezinok -> Malacky Vehicle: Car
 Pezinok -> Malacky Vehicle: Car
 Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car

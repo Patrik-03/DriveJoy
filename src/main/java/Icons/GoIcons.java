@@ -2,8 +2,10 @@ package Icons;
 
 public class GoIcons implements GO
 {
-	private String[] icons = new String[4];
-
+	private String lambo;
+	private String cabrio;
+	private String scooter;
+	private String motorbike;
 	public GoIcons()
 	{
 
@@ -21,33 +23,67 @@ public class GoIcons implements GO
 			setMotorbike();
 		}
 	}
-
-	private void setMotorbike()
+	public String getLambo()
 	{
-		icons[0] = "src/main/resources/Icons/motorbike.png";
+		return lambo;
 	}
-
-	private void setScooter()
+	public void setLambo()
 	{
-		icons[1] = "src/main/resources/Icons/scooter.png";
+		this.lambo = "lambo.png";
 	}
-
-	private void setCabrio()
+	public String getCabrio()
 	{
-		icons[2] = "src/main/resources/Icons/cabrio.png";
+		return cabrio;
 	}
-
-	private void setLambo()
+	public void setCabrio()
 	{
-		icons[3] = "src/main/resources/Icons/lambo.png";
+		this.cabrio = "cabrio.png";
 	}
-
-	public String[] getIcons()
+	public String getScooter()
 	{
-		return icons;
+		return scooter;
 	}
-	public void setIcons(String[] icons)
+	public void setScooter()
 	{
-		this.icons = icons;
+		this.scooter = "scooter.png";
+	}
+	public String getMotorbike()
+	{
+		return motorbike;
+	}
+	public void setMotorbike()
+	{
+		this.motorbike = "motorbike.png";
+	}
+	public String random(String type)
+	{
+		if(type.equals("Car"))
+		{
+			int random = (int) (Math.random() * 2);
+			if(random == 0)
+			{
+				return getLambo();
+			}
+			else
+			{
+				return getCabrio();
+			}
+		}
+		else if(type.equals("Motorbike"))
+		{
+			int random = (int) (Math.random() * 2);
+			if(random == 0)
+			{
+				return getScooter();
+			}
+			else
+			{
+				return getMotorbike();
+			}
+		}
+		else
+		{
+			return null;
+		}
 	}
 }
