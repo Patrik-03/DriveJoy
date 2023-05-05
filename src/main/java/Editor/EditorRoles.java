@@ -4,14 +4,15 @@ import java.util.Objects;
 
 public class EditorRoles extends EditorInput
 {
-    String ID;
-    public String name;
+    private String ID;
+    private String name;
     Editor editor;
+
     public EditorRoles(String id)
     {
         super(id);
         this.ID = id;
-        this.editor = new Editor();
+        this.editor = Editor.getInstance();
     }
     public void checkID() throws WrongIdException
     {
@@ -23,5 +24,21 @@ public class EditorRoles extends EditorInput
         {
             throw new WrongIdException("Wrong ID");
         }
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    @Override
+    public String getID()
+    {
+        return ID;
     }
 }

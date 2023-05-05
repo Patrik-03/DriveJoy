@@ -2,8 +2,8 @@ package User;
 
 public class UserSign
 {
-    public String name;
-    public String password;
+    private String name;
+    private String password;
 
     public UserSign() {
     }

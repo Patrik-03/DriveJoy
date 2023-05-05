@@ -2,19 +2,24 @@ package Editor;
 
 public class Editor
 {
-	String ID;
-	String name;
-	public Editor()
+	private static final Editor instance = new Editor();
+	private Editor()
 	{
-		this.ID = "1";
-		this.name = "Editor";
+
 	}
+
+	public static Editor getInstance()
+	{
+		return instance;
+	}
+
 	public String getID()
 	{
-		return this.ID;
+		return "1";
 	}
+
 	public String getName()
 	{
-		return this.name;
+		return "Editor";
 	}
 }

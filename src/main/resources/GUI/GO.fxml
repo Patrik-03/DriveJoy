@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="bgGO" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GoController">
    <children>
-      <Label fx:id="dest" layoutX="83.0" layoutY="39.0" prefHeight="34.0" prefWidth="185.0" />
-      <Label fx:id="start" layoutX="313.0" layoutY="103.0" prefHeight="68.0" prefWidth="186.0" />
+      <Label fx:id="dest" layoutX="79.0" prefHeight="34.0" prefWidth="185.0" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font></Label>
+      <Label fx:id="start" layoutX="357.0" layoutY="78.0" prefHeight="72.0" prefWidth="143.0" textAlignment="RIGHT">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font></Label>
+      <ImageView fx:id="v" fitHeight="80.0" fitWidth="96.0" layoutX="250.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="Z10" layoutX="313.0" layoutY="195.0" prefHeight="17.0" prefWidth="25.0" />
+      <Label fx:id="Z11" layoutX="304.0" layoutY="97.0" prefHeight="17.0" prefWidth="18.0" />
+      <Label fx:id="Z12" layoutX="215.0" layoutY="80.0" prefHeight="17.0" prefWidth="25.0" />
+      <Label fx:id="Z13" layoutX="91.0" layoutY="52.0" prefHeight="17.0" prefWidth="18.0" />
+      <Label fx:id="Z15" layoutX="109.0" layoutY="35.0" prefHeight="17.0" prefWidth="18.0" />
    </children>
 </AnchorPane>

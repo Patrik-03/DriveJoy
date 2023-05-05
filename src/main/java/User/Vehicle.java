@@ -3,12 +3,12 @@ package User;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Vehicle
+public class Vehicle implements java.io.Serializable
 {
-    String type;
+    private String type;
     public Vehicle()
     {
-        this.type = null;
+        this.type = "";
     }
     public void setType(String type)
     {

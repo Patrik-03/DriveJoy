@@ -22,8 +22,8 @@
 #bgGO
 {
     -fx-background-image: url("GO.png");
-    -fx-background-size: 430px 430px;
-    -fx-background-position: center 0px;
+    -fx-background-size: 450px 500px;
+    -fx-background-position: center -50px;
     -fx-background-repeat: no-repeat;
 }
 #button

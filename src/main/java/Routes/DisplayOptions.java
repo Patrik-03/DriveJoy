@@ -28,12 +28,26 @@ public class DisplayOptions
         }
         return i;
     }
-    public String[] origin = new String[rows()];
-    public String[] destination = new String[rows()];
-    public String[] name = new String[rows()];
-    public String[] distance = new String[rows()];
-    public String[] badge = new String[rows()];
-    public String[] type = new String[rows()];
+    private String[] origin = new String[rows()];
+    private String[] destination = new String[rows()];
+    private String[] name = new String[rows()];
+    private String[] distance = new String[rows()];
+    private String[] badge = new String[rows()];
+    private String[] type = new String[rows()];
+    public String[] locations = new String[rows()*2];
+    //merge origin and destination into locations
+    public void merge()
+    {
+        int i = 0;
+        int j = 0;
+        while (i < rows())
+        {
+            locations[j] = origin[i];
+            locations[j+1] = destination[i];
+            i++;
+            j = j + 2;
+        }
+    }
 
     public void getRoutes()
     {
@@ -81,11 +95,36 @@ public class DisplayOptions
         int i;
         for (i = 0; i < rows(); i++)
         {
-            if(this.origin[i].equals(origin))
+            if(this.origin[i].equals(origin) || this.destination[i].equals(origin))
             {
                 return true;
             }
         }
         return false;
     }
+    public String getOrigin(int i)
+    {
+        return origin[i];
+    }
+    public String getDestination(int i)
+    {
+        return destination[i];
+    }
+    public String getName(int i)
+    {
+        return name[i];
+    }
+    public String getDistance(int i)
+    {
+        return distance[i];
+    }
+    public String getBadge(int i)
+    {
+        return badge[i];
+    }
+    public String getType(int i)
+    {
+        return type[i];
+    }
+
 }

@@ -2,7 +2,7 @@ package Editor;
 
 public class EditorInput
 {
-    String ID;
+    private String ID;
     public EditorInput(String id)
     {
         this.ID = id;

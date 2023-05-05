@@ -34,7 +34,7 @@ public class SignUpController
         userSign.setName(name.getText());
         userSign.setPassword(pass.getText());
         Database database = new Database();
-        if (database.checkUserUP(userSign.name))
+        if (database.checkUserUP(userSign.getName()))
         {
             exist.setText("User already exists");
         }
@@ -84,11 +84,11 @@ public class SignUpController
             }
             else
             {
-                database.addUser(userSign.name, userSign.password);
+                database.addUser(userSign.getName(), userSign.getPassword());
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
                 Parent newScreen = loader.load();
                 MainMenuController controller = loader.getController();
-                controller.setUserName(userSign.name, userSign.password);
+                controller.setUserName(userSign.getName(), userSign.getPassword());
                 Scene signInScene = new Scene(newScreen);
                 Stage signInStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 signInStage.setScene(signInScene);

@@ -1,5 +1,6 @@
 package GUI;
 
+import Icons.SetIcons;
 import User.*;
 import Routes.*;
 import Editor.*;
@@ -13,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
 
 public class MainMenuController
@@ -69,11 +70,11 @@ public class MainMenuController
     {
         DisplayOptions displayOptions = new DisplayOptions(); //create object
         displayOptions.getRoutes(); //get routes from database
+        displayOptions.merge(); //merge routes
         historyClick(); //history menu
-        //make go button invisible
-        go.setVisible(false);
+        go.setVisible(false); //hide go button
         image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png")))); //set garage image
-        TextFields.bindAutoCompletion(searchField, displayOptions.origin); //autocomplete
+        TextFields.bindAutoCompletion(searchField, displayOptions.locations); //autocomplete
     }
     @FXML
     protected void signOutClick() throws IOException
@@ -117,25 +118,28 @@ public class MainMenuController
         if(!displayOptions.checkRoute(searchField.getText()))
         {
             type.setText("This location is currently not available");
+            type.setStyle("-fx-text-fill: #000000");
+            go.setVisible(false);
         }
         else if(searchField.getText().equals(""))
         {
             type.setText("Please enter a location");
             type.setStyle("-fx-text-fill: red");
+            go.setVisible(false);
         }
         else
         {
             if (v.set())
             {
-                distance.setText(displayOptions.distance[displayOptions.getIndex(routeInput.location)] + " km");
-                nameR.setText(displayOptions.name[displayOptions.getIndex(routeInput.location)]);
-                badge.setText(displayOptions.badge[displayOptions.getIndex(routeInput.location)]);
+                distance.setText(displayOptions.getDistance(displayOptions.getIndex(routeInput.getLocation())) + " km");
+                nameR.setText(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation())));
+                badge.setText(displayOptions.getBadge(displayOptions.getIndex(routeInput.getLocation())));
                 badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
                 curves.setText("Curves: ");
-                if (displayOptions.type[displayOptions.getIndex(routeInput.location)].equals(v.getType()))
+                if (displayOptions.getType(displayOptions.getIndex(routeInput.getLocation())).equals(v.getType()))
                 {
                     type.setText("Your vehicle is perfect for this route");
-                    type.setStyle("-fx-text-fill: #00ff00;");
+                    type.setStyle("-fx-text-fill: #275227;");
                 }
                 else
                 {
@@ -146,7 +150,7 @@ public class MainMenuController
                 distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
                 routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
                 curvesNum.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("curved-lines.png"))));
-                routeMemory.addRoute(displayOptions.name[displayOptions.getIndex(routeInput.location)] + " Vehicle: " + v.getType());
+                routeMemory.addRoute(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation()))+ " Vehicle: " + v.getType());
                 go.setVisible(true);
             }
             else
@@ -172,11 +176,25 @@ public class MainMenuController
                 searchField.setText(origin[0]);
                 if(vehicle[1].equals("Car"))
                 {
-                    setCar();
+                    try
+                    {
+                        setCar();
+                    }
+                    catch (IOException | ClassNotFoundException e)
+                    {
+                        throw new RuntimeException(e);
+                    }
                 }
                 else
                 {
-                    setMotorbike();
+                    try
+                    {
+                        setMotorbike();
+                    }
+                    catch (IOException | ClassNotFoundException e)
+                    {
+                        throw new RuntimeException(e);
+                    }
                 }
                 try
                 {
@@ -190,20 +208,22 @@ public class MainMenuController
         }
     }
     @FXML
-    protected void setCar()
+    protected void setCar() throws IOException, ClassNotFoundException
     {
         Car c = new Car();
         c.setType(car.getText());
         v.setType(c.getType());
+        SetIcons setIcons = new SetIcons(v);
         image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
         vehicle.setText(c.getType());
     }
     @FXML
-    protected void setMotorbike()
+    protected void setMotorbike() throws IOException, ClassNotFoundException
     {
         Motorbike m = new Motorbike();
         m.setType(motorbike.getText());
         v.setType(m.getType());
+        SetIcons setIcons = new SetIcons(v);
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
     }
@@ -214,11 +234,17 @@ public class MainMenuController
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GO.fxml"));
             Parent root = loader.load();
+            GoController goController = loader.getController();
+            goController.setStart(searchField.getText());
+            goController.setDest(nameR.getText().split(" -> ")[0].equals(searchField.getText()) ? nameR.getText().split(" -> ")[1] : nameR.getText().split(" -> ")[0]);
+            goController.setVehicle(new Image(Objects.requireNonNull(getClass().getResourceAsStream("lambo.png"))));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
             stage.show();
+            Thread thread = new Thread(goController.animate());
+            thread.start();
         }
         catch (IOException ex)
         {
