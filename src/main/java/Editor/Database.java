@@ -77,23 +77,6 @@ public class Database
         }
         return false;
     }
-
-    public void changeN(String name, String newName) throws IOException
-    {
-        //change name in file
-        StringBuilder old = new StringBuilder();
-        FileReader file = new FileReader("UserInfo.txt");
-        Scanner scan = new Scanner(file);
-        while(scan.hasNextLine())
-        {
-            old.append(scan.nextLine()).append(" ").append(System.lineSeparator());
-        }
-        String newContent = old.toString().replaceAll(name, newName);
-        BufferedWriter writer = new BufferedWriter(new FileWriter("UserInfo.txt"));
-        writer.write(newContent);
-        writer.close();
-        scan.close();
-    }
     //change password in file
     public void changeP(String name, String password, String newpassword) throws IOException
     {
@@ -130,5 +113,37 @@ public class Database
         writer.close();
         scan.close();
     }
-
+    public void deleteUser(String name) throws IOException
+    {
+        StringBuilder oldContent = new StringBuilder();
+        FileReader file = new FileReader("UserInfo.txt");
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine())
+        {
+            String line = scan.nextLine(); // read the current line
+            if (line.startsWith(name))
+            { // check if the current line contains the info of the signed-in user
+                String[] parts = line.split("\\s+"); // split the line by whitespace
+                if (parts.length == 2) //check if the passwords matches
+                {
+                    oldContent.append("");
+                }
+                else
+                {
+                    oldContent.append(line); // keep the original line
+                }
+            }
+            else
+            {
+                oldContent.append(line); // keep the original line
+            }
+            if (scan.hasNextLine()) {
+                oldContent.append(System.lineSeparator());
+            }
+        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter("UserInfo.txt"));
+        writer.write(oldContent.toString());
+        writer.close();
+        scan.close();
+    }
 }

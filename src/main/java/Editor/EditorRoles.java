@@ -1,5 +1,8 @@
 package Editor;
 import Exception.WrongIdException;
+import GUI.Alert;
+import GUI.AlertBox;
+
 import java.util.Objects;
 
 public class EditorRoles extends EditorInput
@@ -22,6 +25,8 @@ public class EditorRoles extends EditorInput
         }
         else
         {
+            Alert alert = new AlertBox();
+            alert.alert();
             throw new WrongIdException("Wrong ID");
         }
     }

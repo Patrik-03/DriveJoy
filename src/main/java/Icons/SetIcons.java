@@ -7,7 +7,7 @@ import java.io.*;
 public class SetIcons implements java.io.Serializable
 {
 	private String vehicleType;
-	GO go = new GoIcons();
+	GO go = new GoIcons(); // Interface for setting icons
 	public SetIcons(Vehicle vehicle) throws IOException, ClassNotFoundException
 	{
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();

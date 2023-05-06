@@ -5,7 +5,6 @@ import User.Vehicle;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -42,6 +41,7 @@ public class GoController
 	public void setStart(String start)
 	{
 		this.start.setText(start);
+		this.start.wrapTextProperty().setValue(true);
 	}
 
 	public void setVehicle(Image image)
@@ -50,7 +50,7 @@ public class GoController
 	}
 	public Thread animate()
 	{
-		Timeline timeline = new Timeline();
+		Timeline timeline = new Timeline(); // Create a new Timeline animation object
 
 		// Initial tilt by 45 degrees to the right
 		Rotate initialTilt = new Rotate(45, v.getFitWidth() / 2, v.getFitHeight() / 2);
@@ -78,7 +78,7 @@ public class GoController
 
 		// Tilt back by 10 degrees at Z13
 		Rotate tiltBack = new Rotate(-120, v.getFitWidth() / 2, v.getFitHeight() / 2);
-		Scale scale3 = new Scale(0.9*0.9*0.9, 0.9*0.9*0.9, v.getFitWidth() / 2, v.getFitHeight() / 2);
+		Scale scale3 = new Scale(0.9*0.9*0.9*0.9, 0.9*0.9*0.9*0.9, v.getFitWidth() / 2, v.getFitHeight() / 2);
 		KeyValue kv14 = new KeyValue(v.layoutXProperty(), Z12.getLayoutX());
 		KeyValue kv15 = new KeyValue(v.layoutYProperty(), Z12.getLayoutY());
 		KeyFrame kf5 = new KeyFrame(Duration.seconds(6), kv14, kv15);
@@ -89,7 +89,7 @@ public class GoController
 
 		// Tilt to original position and then 45 degrees to the right at Z14
 		Rotate tiltRight = new Rotate(10, v.getFitWidth() / 2, v.getFitHeight() / 2);
-		Scale scale4 = new Scale(0.9*0.9*0.9*0.9, 0.9*0.9*0.9*0.9, v.getFitWidth() / 2, v.getFitHeight() / 2);
+		Scale scale4 = new Scale(0.9*0.9*0.9*0.9*0.8*0.8, 0.9*0.9*0.9*0.9*0.8*0.8, v.getFitWidth() / 2, v.getFitHeight() / 2);
 		KeyValue kv19 = new KeyValue(v.layoutXProperty(), Z13.getLayoutX());
 		KeyValue kv20 = new KeyValue(v.layoutYProperty(), Z13.getLayoutY());
 		KeyFrame kf6 = new KeyFrame(Duration.seconds(9), kv19, kv20);
@@ -103,7 +103,11 @@ public class GoController
 		KeyFrame kf7 = new KeyFrame(Duration.seconds(12), kv24, kv25);
 
 		timeline.getKeyFrames().addAll(kf1, kf1Tilt, kf4, kf4Tilt, kf5, kf5Tilt, kf6, kf6Tilt, kf7);
-		timeline.play();
+		timeline.play(); // Start the animation
+		timeline.setOnFinished(event -> {
+			// Animation is finished, call the arrived() method
+			arrived();
+		});
 
 		return new Thread(() -> {
 			try
@@ -115,5 +119,11 @@ public class GoController
 				e.printStackTrace();
 			}
 		});
+	}
+
+	private void arrived()
+	{
+		Alert alert = new AlertBox();
+		alert.display("Your vehicle has arrived at its destination!");
 	}
 }

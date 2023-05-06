@@ -7,11 +7,11 @@
 
 <AnchorPane id="bgGO" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GoController">
    <children>
-      <Label fx:id="dest" layoutX="79.0" prefHeight="34.0" prefWidth="185.0" textAlignment="CENTER">
+      <Label id="search" fx:id="dest" layoutX="77.0" prefHeight="34.0" prefWidth="185.0" stylesheets="@style.css" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>
-      <Label fx:id="start" layoutX="357.0" layoutY="78.0" prefHeight="72.0" prefWidth="143.0" textAlignment="RIGHT">
+      <Label id="search" fx:id="start" layoutX="346.0" layoutY="70.0" prefHeight="72.0" prefWidth="143.0" stylesheets="@style.css" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>

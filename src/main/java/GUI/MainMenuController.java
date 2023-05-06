@@ -1,7 +1,5 @@
 package GUI;
 
-import Icons.GO;
-import Icons.GoIcons;
 import Icons.SetIcons;
 import User.*;
 import Routes.*;
@@ -71,14 +69,39 @@ public class MainMenuController
     }
     public void initialize()
     {
-        DisplayOptions displayOptions = new DisplayOptions(); //create object
-        displayOptions.getRoutes(); //get routes from database
-        displayOptions.merge(); //merge routes
-        historyClick(); //history menu
-        go.setVisible(false); //hide go button
-        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png")))); //set garage image
-        TextFields.bindAutoCompletion(searchField, displayOptions.locations); //autocomplete
+        DisplayOptions displayOptions = new DisplayOptions();
+        go.setVisible(false);
+        image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png"))));
+
+        Thread autocompleteThread = new Thread(() -> TextFields.bindAutoCompletion(searchField, displayOptions.locations)); //create thread for autocomplete
+
+        Thread historyThread = new Thread(() -> { //create thread for history
+            try {
+                historyClick();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        Thread routesThread = new Thread(() -> { //create thread for routes
+            displayOptions.getRoutes();
+            displayOptions.merge();
+        });
+
+        routesThread.start(); //start threads
+        historyThread.start(); //start threads
+        autocompleteThread.start(); //start threads
+        try
+        {
+            routesThread.join(); //join threads
+            historyThread.join(); //join threads
+            autocompleteThread.join(); //join threads
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
     }
+
     @FXML
     protected void signOutClick() throws IOException
     {
@@ -164,9 +187,10 @@ public class MainMenuController
         }
     }
     @FXML
-    protected void historyClick()
+    protected void historyClick() throws IOException
     {
         RouteMemory routeMemory = new RouteMemory();
+        routeMemory.check();
         DisplayOptions displayOptions = new DisplayOptions();
         displayOptions.getRoutes();
         for(int i = 0; i < routeMemory.rows(); i++)

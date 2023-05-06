@@ -1,84 +1,8 @@
-Piešťany -> Topoľčany Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Hnúšťa -> Ratková Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Štrba -> Štrbské Pleso Vehicle: Motorbike
-Hnúšťa -> Ratková Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
 Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
 Piešťany -> Topoľčany Vehicle: Car
 Piešťany -> Topoľčany Vehicle: Car
 Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Hnúšťa -> Ratková Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Štrba -> Štrbské Pleso Vehicle: Motorbike
-Piešťany -> Topoľčany Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Hnúšťa -> Ratková Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Motorbike
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
 Piešťany -> Topoľčany Vehicle: Car
 Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
 Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Car
-Pezinok -> Malacky Vehicle: Motorbike
-Pezinok -> Malacky Vehicle: Car
+Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car

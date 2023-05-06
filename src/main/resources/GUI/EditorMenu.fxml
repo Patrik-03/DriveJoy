@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditorMenuController">
+<AnchorPane id="bg2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditorMenuController">
    <children>
-      <VBox layoutX="130.0" layoutY="220.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" layoutX="125.0" layoutY="198.0" prefHeight="244.0" prefWidth="110.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" text="Button">
+            <Button id="button" fx:id="delR" mnemonicParsing="false" onAction="#deleteRouteClick" prefHeight="40.0" prefWidth="94.0" stylesheets="@style.css" text="Delete Route">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" text="Button">
+               </cursor>
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font></Button>
+            <Button id="button" fx:id="addR" mnemonicParsing="false" onAction="#createRouteClick" prefHeight="40.0" prefWidth="77.0" stylesheets="@style.css" text="Add Route">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" text="Button">
+               </cursor>
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font></Button>
+            <Button id="button" fx:id="delU" mnemonicParsing="false" onAction="#deleteUserClick" prefHeight="40.0" prefWidth="85.0" stylesheets="@style.css" text="Delete User">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" text="Button">
+               </cursor>
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font></Button>
+            <Button id="button" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" stylesheets="@style.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" text="Button">
+               </cursor>
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button id="button" mnemonicParsing="false" onAction="#signOutClick" prefHeight="40.0" prefWidth="70.0" stylesheets="@style.css" text="Sign out">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" text="Button">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button id="button" mnemonicParsing="false" onAction="#signOutClick" stylesheets="@style.css" text="Sign out">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font></Button>
          </children>
       </VBox>
    </children>

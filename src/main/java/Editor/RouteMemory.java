@@ -9,7 +9,6 @@ public class RouteMemory
 
     public void addRoute(String destination) throws IOException
     {
-        check();
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
         out.write( destination);
         out.newLine();
@@ -61,45 +60,15 @@ public class RouteMemory
         }
         return name[i];
     }
-    public void deleteRoute(String name) throws IOException
-    {
-        File inputFile = new File("RouteMemory.txt");
-        File tempFile = new File("myTempFile.txt");
-
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        String currentLine;
-
-        while((currentLine = reader.readLine()) != null)
-        {
-            String trimmedLine = currentLine.trim();
-            if(trimmedLine.equals(name)) continue;
-            writer.write(currentLine + System.getProperty("line.separator"));
-        }
-        writer.close();
-        reader.close();
-        boolean successful = tempFile.renameTo(inputFile);
-    }
     public void deleteAll() throws IOException
     {
-        File inputFile = new File("RouteMemory.txt");
-        File tempFile = new File("myTempFile.txt");
+        File file = new File("RouteMemory.txt");
 
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        FileWriter fw = new FileWriter(file, false); // open file in write mode, false for overwrite
+        fw.write(""); // write empty string to clear the file
+        fw.close();
 
-        String currentLine;
-
-        while((currentLine = reader.readLine()) != null)
-        {
-            String trimmedLine = currentLine.trim();
-            if(trimmedLine.equals("")) continue;
-            writer.write(currentLine + System.getProperty("line.separator"));
-        }
-        writer.close();
-        reader.close();
-        boolean successful = tempFile.renameTo(inputFile);
+        System.out.println("File cleared successfully.");
     }
     //check if there are more than 20 routes and if so delete them all
     public void check() throws IOException
@@ -107,6 +76,18 @@ public class RouteMemory
         if(rows() > 20)
         {
             deleteAll();
+        }
+    }
+
+    public void deleted(boolean successful)
+    {
+        if(successful)
+        {
+            System.out.println("Deleted successfully");
+        }
+        else
+        {
+            System.out.println("Unable to delete");
         }
     }
 }
