@@ -12,8 +12,8 @@ public class Database
     {
         int hash = password.hashCode();
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
-        out.newLine();
         out.write(name + " " + hash);
+        out.newLine();
         out.close();
     }
 
@@ -145,5 +145,50 @@ public class Database
         writer.write(oldContent.toString());
         writer.close();
         scan.close();
+    }
+    public int getRows()
+    {
+        int rows = 0;
+        if (file.exists())
+        {
+            try
+            {
+                FileReader reader = new FileReader(file);
+                Scanner scan = new Scanner(reader);
+                while (scan.hasNextLine()) {
+                    String line = scan.nextLine();
+                    rows++;
+                }
+            }
+            catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        return rows;
+    }
+    public String[] getUsers()
+    {
+        String[] users = new String[getRows()];
+        int i = 0;
+        if (file.exists())
+        {
+            try
+            {
+                FileReader reader = new FileReader(file);
+                Scanner scan = new Scanner(reader);
+                while (scan.hasNextLine()) {
+                    String line = scan.nextLine();
+                    String[] parts = line.split(" ");
+                    users[i] = parts[0];
+                    i++;
+                }
+            }
+            catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        return users;
     }
 }

@@ -16,9 +16,10 @@ public class EditorMenuController
     @FXML
     protected void deleteRouteClick(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteRoute.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DeleteRoute.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Delete Route");
         stage.show();
@@ -26,9 +27,10 @@ public class EditorMenuController
     @FXML
     protected void createRouteClick(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreateRoute.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateRoute.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Create Route");
         stage.show();
@@ -36,9 +38,10 @@ public class EditorMenuController
     @FXML
     protected void deleteUserClick(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteUser.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DeleteUser.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Delete User");
         stage.show();
