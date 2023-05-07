@@ -15,14 +15,29 @@ import Exception.*;
 import java.io.IOException;
 import java.util.Objects;
 
-public class EditorController
+/**
+ * This class is the controller for the editor input screen
+ */
+public class EditorController //editor input controller
 {
+    /**
+     * Constructor.
+     */
+    public EditorController()
+    {
+    }
     @FXML
-    private TextField id;
+    TextField id;
     @FXML
-    private Label no;
+    Label no;
+    /**
+     * This method checks if the id is valid and if it is, goes to the editor menu
+     * @param event The mouse event
+     * @throws IOException The io exception
+     * @throws WrongIdException The wrong id exception
+     */
     @FXML
-    protected void submitClick(MouseEvent event) throws IOException, WrongIdException
+    protected void submitClick(MouseEvent event) throws IOException, WrongIdException //check if the id is valid and if it is, go to the editor menu
     {
         EditorRoles editorRoles = new EditorRoles(id.getText());
         editorRoles.checkID();
@@ -34,8 +49,13 @@ public class EditorController
         signInStage.show();
 
     }
+    /**
+     * This method goes back to the welcome screen
+     * @param event The mouse event
+     * @throws IOException The io exception
+     */
     @FXML
-    protected void backEClick(MouseEvent event) throws IOException
+    protected void backEClick(MouseEvent event) throws IOException //go back to the welcome screen
     {
         Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene signInScene = new Scene(newScreen);

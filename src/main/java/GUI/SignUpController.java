@@ -16,8 +16,23 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class SignUpController
+/**
+ * The SignUpController class is used to control the sign up page.
+ * It is used to sign up a new user.
+ * It is used to check if the user already exists.
+ * It is used to check if the password and confirm password match.
+ * It is used to check if the fields are empty.
+ * It is used to go back to the welcome page.
+ * It is used to go to the main menu page.
+ */
+public class SignUpController //sign up controller
 {
+    /**
+     * Constructor.
+     */
+    public SignUpController()
+    {
+    }
     @FXML
     private Label exist;
     @FXML
@@ -27,8 +42,13 @@ public class SignUpController
     @FXML
     private PasswordField con;
 
+    /**
+     * The onSignUpClick method is used to sign up a new user.
+     * @param event The mouse event
+     * @throws IOException If the file is not found
+     */
     @FXML
-    protected void onSignUpClick(MouseEvent event) throws IOException
+    protected void onSignUpClick(MouseEvent event) throws IOException //sign up button
     {
         UserSign userSign = new UserSign();
         userSign.setName(name.getText());
@@ -96,8 +116,13 @@ public class SignUpController
             }
         }
     }
+    /**
+     * The onBackClick method is used to go back to the welcome page.
+     * @param event The mouse event
+     * @throws IOException If the file is not found
+     */
     @FXML
-    protected void onBackClick(MouseEvent event) throws IOException
+    protected void onBackClick(MouseEvent event) throws IOException //back button
     {
         Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene signUpScene = new Scene(newScreen);

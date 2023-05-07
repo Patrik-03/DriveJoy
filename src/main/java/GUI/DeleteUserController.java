@@ -12,26 +12,51 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class DeleteUserController
+/**
+ * This class is the controller for the delete user window
+ */
+public class DeleteUserController //delete user controller
 {
+	/**
+	 * Constructor.
+	 */
+	public DeleteUserController()
+	{
+	}
 	@FXML
 	ChoiceBox<String> users;
 	@FXML
 	CheckBox confirm;
+	/**
+	 * The Database.
+	 */
 	Database database = new Database();
-	public void initialize()
+	/**
+	 * This method initializes the choice box
+	 */
+	public void initialize() //initialize choice box
 	{
 		users.getItems().addAll(Arrays.stream(database.getUsers())
 				.filter(user -> user != null && !user.isEmpty())
 				.toArray(String[]::new));
 	}
+	/**
+	 * This method closes the window
+	 * @param event the event
+	 */
 	@FXML
-	protected void backB(ActionEvent event)
+	protected void backB(ActionEvent event) //back button
 	{
 		Stage newStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
 		newStage.close();
 	}
-	public void deleteB(ActionEvent actionEvent) throws IOException, EmptyDatabase
+	/**
+	 * This method deletes the user
+	 * @param actionEvent the action event
+	 * @throws IOException the io exception
+	 * @throws EmptyDatabase the empty database
+	 */
+	public void deleteB(ActionEvent actionEvent) throws IOException, EmptyDatabase //delete button
 	{
 		if(database.getUsers().length == 0)
 		{

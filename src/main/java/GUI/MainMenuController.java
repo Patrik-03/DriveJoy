@@ -19,12 +19,22 @@ import org.controlsfx.control.textfield.TextFields;
 import java.io.*;
 import java.util.Objects;
 
-public class MainMenuController
+/**
+ * The type Main menu controller.
+ * This class is used to control the main menu page.
+ */
+public class MainMenuController //main menu controller
 {
+    /**
+     * Constructor.
+     */
+    public MainMenuController()
+    {
+    }
     @FXML
     private MenuBar menuBar;
     @FXML
-    public TextField searchField;
+    private TextField searchField;
     @FXML
     private Label distance;
     @FXML
@@ -46,7 +56,7 @@ public class MainMenuController
     @FXML
     private MenuItem motorbike;
     @FXML
-    public ImageView image;
+    private ImageView image;
     @FXML
     private ImageView curvesNum;
     @FXML
@@ -61,7 +71,12 @@ public class MainMenuController
     @FXML
     private Button go;
 
-    public void setUserName(String username, String password)
+    /**
+     * Set users name and password for this controller.
+     * @param username the username
+     * @param password the password
+     */
+    public void setUserName(String username, String password) //set username and password
     {
         user = new UserSign();
         user.setName(username);
@@ -69,7 +84,10 @@ public class MainMenuController
         welcome.setText("Welcome back in Drive Joy, " + user.getName() + "!");
         welcome.setStyle("-fx-wrap-text: true");
     }
-    public void initialize()
+    /**
+     * Initialize autocomplete, history and routes.
+     */
+    public void initialize() //initialize autocomplete, history and routes
     {
         DisplayOptions displayOptions = new DisplayOptions();
         go.setVisible(false);
@@ -104,8 +122,12 @@ public class MainMenuController
         }
     }
 
+    /**
+     * Sign out.
+     * @throws IOException the io exception
+     */
     @FXML
-    protected void signOutClick() throws IOException
+    protected void signOutClick() throws IOException //sign out
     {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml"))); //load fxml
         Scene scene = new Scene(root); //create scene
@@ -114,8 +136,11 @@ public class MainMenuController
         stage.setTitle("Drive Joy"); //set title
         stage.show(); //show stage
     }
+    /**
+     * change password window.
+     */
     @FXML
-    protected void changeP()
+    protected void changeP() //change password window
     {
         try
         {
@@ -134,8 +159,12 @@ public class MainMenuController
             throw new RuntimeException(ex);
         }
     }
+    /**
+     * Search click.
+     * @throws IOException the io exception
+     */
     @FXML
-    protected void searchClick() throws IOException
+    protected void searchClick() throws IOException //search click
     {
         RouteInput routeInput = new RouteInput(searchField.getText());
         RouteMemory routeMemory = new RouteMemory();
@@ -188,8 +217,12 @@ public class MainMenuController
             }
         }
     }
+    /**
+     * History click.
+     * @throws IOException the io exception
+     */
     @FXML
-    protected void historyClick() throws IOException
+    protected void historyClick() throws IOException //history click
     {
         RouteMemory routeMemory = new RouteMemory();
         routeMemory.check();
@@ -236,8 +269,13 @@ public class MainMenuController
             });
         }
     }
+    /**
+     * Set car.
+     * @throws IOException the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     @FXML
-    protected void setCar() throws IOException, ClassNotFoundException
+    protected void setCar() throws IOException, ClassNotFoundException //set car
     {
         Car c = new Car();
         c.setType(car.getText());
@@ -248,8 +286,13 @@ public class MainMenuController
         image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
         vehicle.setText(c.getType());
     }
+    /**
+     * Set motorbike.
+     * @throws IOException the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     @FXML
-    protected void setMotorbike() throws IOException, ClassNotFoundException
+    protected void setMotorbike() throws IOException, ClassNotFoundException //set motorbike
     {
         Motorbike m = new Motorbike();
         m.setType(motorbike.getText());
@@ -260,8 +303,11 @@ public class MainMenuController
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));
         vehicle.setText(m.getType());
     }
+    /**
+     * Go click.
+     */
     @FXML
-    protected void go()
+    protected void go() //go click, animation
     {
         try
         {

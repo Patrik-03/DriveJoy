@@ -15,16 +15,37 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class SigInController
+/**
+ * This class is used to control the sign in page.
+ * It contains methods for the sign in button and the back button.
+ * It is used to sign in a user.
+ * It is used to check if the username and password are correct.
+ */
+public class SigInController //sign in controller
 {
+    /**
+     * Constructor.
+     */
+    public SigInController()
+    {
+    }
     @FXML
     private Label wrong;
     @FXML
     private TextField username;
     @FXML
     private TextField password;
+    /**
+     * This method is used to sign in.
+     * It checks if the username and password are correct.
+     * If they are, it opens the main menu.
+     * If they are not, it displays a message.
+     * @param event The mouse event
+     * @throws IOException If the file is not found
+     * @see IOException
+     */
     @FXML
-    protected void signInClick(MouseEvent event) throws IOException
+    protected void signInClick(MouseEvent event) throws IOException //sign in button
     {
         UserSign userSign = new UserSign();
         userSign.setName(username.getText());
@@ -63,9 +84,14 @@ public class SigInController
             wrong.setText("Wrong username or password");
         }
     }
-
+    /**
+     * This method is used to go back to the welcome page.
+     * @param event The mouse event
+     * @throws IOException If the file is not found
+     * @see IOException
+     */
     @FXML
-    protected void backClick(MouseEvent event) throws IOException
+    protected void backClick(MouseEvent event) throws IOException //back button
     {
         Parent newScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Welcome.fxml")));
         Scene signInScene = new Scene(newScreen);

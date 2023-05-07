@@ -3,9 +3,25 @@ package Routes;
 import java.io.*;
 import java.util.Scanner;
 
-public class DisplayOptions
+/**
+ * This class is used to display the options for the routes.
+ * It also contains methods to get the routes from the file,
+ * get the index of the location, check if the route exists,
+ * get the name, distance, badge and type of the route.
+ */
+public class DisplayOptions //display the options for the routes
 {
-    public int rows()
+    /**
+     * Constructor.
+     */
+    public DisplayOptions()
+    {
+    }
+    /**
+     * This method is used to count the rows in the file.
+     * @return the number of rows in the file
+     */
+    public int rows() //count the rows in the file
     {
         int i = 0;
         File file = new File("Routes.txt");
@@ -34,9 +50,15 @@ public class DisplayOptions
     private String[] distance = new String[rows()];
     private String[] badge = new String[rows()];
     private String[] type = new String[rows()];
+    /**
+     * All locations for autocomplete.
+     */
     public String[] locations = new String[rows()*2];
     //merge origin and destination into locations
-    public void merge()
+    /**
+     * This method is used to merge origin and destination into locations.
+     */
+    public void merge() //merge origin and destination into locations
     {
         int i = 0;
         int j = 0;
@@ -49,7 +71,10 @@ public class DisplayOptions
         }
     }
 
-    public void getRoutes()
+    /**
+     * This method is used to get the routes from the file.
+     */
+    public void getRoutes() //get the routes from the file
     {
         int i = 0;
         File file = new File("Routes.txt");
@@ -78,7 +103,12 @@ public class DisplayOptions
             }
         }
     }
-    public int getIndex(String location)
+    /**
+     * This method is used to get the index of the location.
+     * @param location the location
+     * @return the index of the location
+     */
+    public int getIndex(String location) //get the index of the location
     {
         int i;
         for (i = 0; i < rows(); i++)
@@ -90,7 +120,12 @@ public class DisplayOptions
         }
         return i;
     }
-    public boolean checkRoute(String origin)
+    /**
+     * This method is used to check if the route exists.
+     * @param origin the origin
+     * @return true if the route exists, false otherwise
+     */
+    public boolean checkRoute(String origin) //check if the route exists
     {
         int i;
         for (i = 0; i < rows(); i++)
@@ -102,27 +137,39 @@ public class DisplayOptions
         }
         return false;
     }
-    public String getOrigin(int i)
-    {
-        return origin[i];
-    }
-    public String getDestination(int i)
-    {
-        return destination[i];
-    }
-    public String getName(int i)
+    /**
+     * This method is used to get the name of the route.
+     * @param i the index of the route
+     * @return the name of the route
+     */
+    public String getName(int i) //get the name of the route
     {
         return name[i];
     }
-    public String getDistance(int i)
+    /**
+     * This method is used to get the distance of the route.
+     * @param i the index of the route
+     * @return the distance of the route
+     */
+    public String getDistance(int i) //get the distance of the route
     {
         return distance[i];
     }
-    public String getBadge(int i)
+    /**
+     * This method is used to get the badge of the route.
+     * @param i the index of the route
+     * @return the badge of the route
+     */
+    public String getBadge(int i) //get the badge of the route
     {
         return badge[i];
     }
-    public String getType(int i)
+    /**
+     * This method is used to get the type of the route.
+     * @param i the index of the route
+     * @return the type of the route
+     */
+    public String getType(int i) //get the type of the route
     {
         return type[i];
     }

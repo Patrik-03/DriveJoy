@@ -4,20 +4,45 @@ import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Database
+/**
+ * Class for storing user info
+ * @see Editor
+ */
+public class Database //class for storing user info
 {
-    File file = new File("UserInfo.txt");
-
-    public void addUser(String name, String password) throws IOException
+    /**
+     * Constructor for Database
+     */
+    public Database()
     {
-        int hash = password.hashCode();
-        BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
-        out.write(name + " " + hash);
-        out.newLine();
-        out.close();
+    }
+    /**
+     * File for storing user info
+     */
+    File file = new File("UserInfo.txt"); //file for storing user info
+
+    /**
+     * Method for adding user to file
+     * @param name username
+     * @param password password
+     * @throws IOException if file not found
+     */
+    public void addUser(String name, String password) throws IOException //add user to file
+    {
+        int hash = password.hashCode(); //hash password
+        BufferedWriter out = new BufferedWriter(new FileWriter(file, true)); //write to file
+        out.write(name + " " + hash); //write name and password hash
+        out.newLine(); //new line
+        out.close(); //close writer
     }
 
-    public boolean checkUser(String name, String password)
+    /**
+     * Method for checking if user exists
+     * @param name username
+     * @param password password
+     * @return true if user exists, false if not
+     */
+    public boolean checkUser(String name, String password) //check if user exists
     {
         if (file.exists())
         {
@@ -49,7 +74,12 @@ public class Database
         }
         return false;
     }
-    public boolean checkUserUP(String name)
+    /**
+     * Method for checking if user exists when creating new user
+     * @param name username
+     * @return true if user exists, false if not
+     */
+    public boolean checkUserUP(String name) //check if user exists if creating new user
     {
         if (file.exists())
         {
@@ -77,8 +107,14 @@ public class Database
         }
         return false;
     }
-    //change password in file
-    public void changeP(String name, String password, String newpassword) throws IOException
+    /**
+     * Method for changing password
+     * @param name username
+     * @param password password
+     * @param newpassword new password
+     * @throws IOException if file not found
+     */
+    public void changeP(String name, String password, String newpassword) throws IOException //change password
     {
         StringBuilder oldContent = new StringBuilder();
         FileReader file = new FileReader("UserInfo.txt");
@@ -113,7 +149,12 @@ public class Database
         writer.close();
         scan.close();
     }
-    public void deleteUser(String name) throws IOException
+    /**
+     * Method for deleting user
+     * @param name username
+     * @throws IOException if file not found
+     */
+    public void deleteUser(String name) throws IOException //delete user
     {
         StringBuilder oldContent = new StringBuilder();
         FileReader file = new FileReader("UserInfo.txt");
@@ -146,7 +187,11 @@ public class Database
         writer.close();
         scan.close();
     }
-    public int getRows()
+    /**
+     * Method for getting number of rows in file
+     * @return number of rows
+     */
+    public int getRows() //get number of rows in file
     {
         int rows = 0;
         if (file.exists())
@@ -167,7 +212,11 @@ public class Database
         }
         return rows;
     }
-    public String[] getUsers()
+    /**
+     * Method for getting users from file
+     * @return array of users
+     */
+    public String[] getUsers() //get users from file
     {
         String[] users = new String[getRows()];
         int i = 0;

@@ -15,9 +15,32 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-public class AlertBox implements Alert
+/**
+ * This class is used to display an alert box.
+ * It implements the Alert interface.
+ * It has a display method that takes a string as a parameter.
+ * The display method is used to display the alert box.
+ */
+/**
+ * Interface for the alert window
+ * @see Alert
+ */
+public class AlertBox implements Alert // implements Alert interface
 {
-    public void display(String message)
+    /**
+     * This is the constructor of the class.
+     */
+    public AlertBox() // constructor
+    {
+    }
+    /**
+     * This method is used to display an alert box.
+     * It takes a string as a parameter.
+     * The string is the message that will be displayed in the alert box.
+     *
+     * @param message the message that will be displayed in the alert box
+     */
+    public void display(String message) // display method
     {
         Platform.runLater(() -> {
             Stage window = new Stage();

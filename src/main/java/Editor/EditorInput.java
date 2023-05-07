@@ -1,13 +1,28 @@
 package Editor;
 
-public class EditorInput
+/**
+ * EditorInput class for editor
+ * @see Editor
+ */
+public class EditorInput //input class for editor
 {
-    private String ID;
-    public EditorInput(String id)
+    /**
+     * id of editor
+     */
+    private String ID; //id of editor
+    /**
+     * Constructor for EditorInput
+     * @param id id of editor
+     */
+    public EditorInput(String id) //constructor
     {
         this.ID = id;
     }
-    public String getID()
+    /**
+     * Getter for id
+     * @return id of editor
+     */
+    public String getID() //getter for id
     {
         return this.ID;
     }

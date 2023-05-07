@@ -16,8 +16,19 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Objects;
 
-public class AddRouteController
+/**
+ * The type Add route controller.
+ * This class is used to control the add route window.
+ * It contains methods for the add route button and the back button.
+ */
+public class AddRouteController //controller for the add route window
 {
+	/**
+	 * The Stage.
+	 */
+	public AddRouteController()
+	{
+	}
 	@FXML
 	TextField direction;
 	@FXML
@@ -26,9 +37,19 @@ public class AddRouteController
 	TextField badge;
 	@FXML
 	ChoiceBox<String> type;
+	/**
+	 * The Add routes.
+	 */
 	AddDeleteRoutes<Object> addRoutes = new AddDeleteRoutes<>();
+	/**
+	 * The Add route.
+	 */
 	AddDeleteRoutes<Object>.AddRoutes addRoute = addRoutes.new AddRoutes();
-	public void initialize()
+	/**
+	 * Initialize.
+	 * This method is used to initialize the choice box with the vehicle classes.
+	 */
+	public void initialize() //initialize the choice box with the vehicle classes
 	{
 		List<String> vehicleClasses = new ArrayList<>(); // Create a list to store the names of classes in the Vehicles package
 		try
@@ -73,15 +94,21 @@ public class AddRouteController
 			// Add the vehicle class names to the choice box
 		type.getItems().addAll(vehicleClasses);
 	}
+	/**
+	 * Add click.
+	 */
 	@FXML
-	protected void addClick()
+	protected void addClick() //add the route to the file
 	{
 		addRoute.addRoute(direction.getText(), length.getText(), badge.getText(), type.getValue());
 		Stage stage = (Stage) type.getScene().getWindow();
 		stage.close();
 	}
+	/**
+	 * Back click.
+	 */
 	@FXML
-	protected void backClick()
+	protected void backClick() //close the window
 	{
 		Stage stage = (Stage) type.getScene().getWindow();
 		stage.close();

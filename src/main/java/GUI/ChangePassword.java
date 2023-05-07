@@ -10,22 +10,47 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ChangePassword
+/**
+ * The type Change password.
+ * This class is used to control the change password window.
+ */
+public class ChangePassword // change the password controller
 {
+    /**
+     * Constructor.
+     */
+    public ChangePassword()
+    {
+    }
     @FXML
-    private TextField current;
+    TextField current;
     @FXML
-    private TextField newp;
+    TextField newp;
+    /**
+     * The Db.
+     */
     Database db = new Database();
+    /**
+     * The User sign.
+     */
     UserSign userSign;
-    public void setUserName(String name, String password)
+    /**
+     * Sets users name.
+     * @param name     the name
+     * @param password the password
+     */
+    public void setUserName(String name, String password) // set the username and password
     {
         userSign = new UserSign();
         userSign.setName(name);
         userSign.setPassword(password);
     }
+    /**
+     * Change password.
+     * @param event the event
+     */
     @FXML
-    protected void changePassword(ActionEvent event)
+    protected void changePassword(ActionEvent event) // change the password
     {
         try
         {
@@ -37,8 +62,12 @@ public class ChangePassword
             throw new RuntimeException(ex);
         }
     }
+    /**
+     * Close.
+     * @param event the event
+     */
     @FXML
-    protected void close(ActionEvent event)
+    protected void close(ActionEvent event) // close the window
     {
         Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
         window.close();

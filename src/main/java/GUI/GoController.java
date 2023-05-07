@@ -1,11 +1,7 @@
 package GUI;
 
-import Icons.SetIcons;
-import User.Vehicle;
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,10 +9,17 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
-import java.io.IOException;
-
-public class GoController
+/**
+ * This class is used to animate the vehicle on the map
+ */
+public class GoController //animation controller
 {
+	/**
+	 * Constructor.
+	 */
+	public GoController()
+	{
+	}
 	@FXML
 	Label dest;
 	@FXML
@@ -34,21 +37,36 @@ public class GoController
 	@FXML
 	Label Z15;
 
-	public void setDest(String dest)
+	/**
+	 * This method is used to set the destination
+	 * @param dest This is the destination
+	 */
+	public void setDest(String dest) //set the destination
 	{
 		this.dest.setText(dest);
 	}
-	public void setStart(String start)
+	/**
+	 * This method is used to set the start location
+	 * @param start This is the start location
+	 */
+	public void setStart(String start) //set the start location
 	{
 		this.start.setText(start);
 		this.start.wrapTextProperty().setValue(true);
 	}
-
-	public void setVehicle(Image image)
+	/**
+	 * This method is used to set the vehicle image
+	 * @param image This is the vehicle image
+	 */
+	public void setVehicle(Image image) //set the vehicle image
 	{
 		v.setImage(image);
 	}
-	public Thread animate()
+	/**
+	 * This method to animate the vehicle
+	 * @return Thread This returns the thread of the animation
+	 */
+	public Thread animate() //animate the vehicle
 	{
 		Timeline timeline = new Timeline(); // Create a new Timeline animation object
 
@@ -120,7 +138,9 @@ public class GoController
 			}
 		});
 	}
-
+	/**
+	 * This method is used to display the alert box
+	 */
 	private void arrived()
 	{
 		Alert alert = new AlertBox();

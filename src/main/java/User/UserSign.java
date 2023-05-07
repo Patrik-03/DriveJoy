@@ -1,25 +1,50 @@
 package User;
 
-public class UserSign
+/**
+ * This class is used to get the username and password from the user
+ */
+public class UserSign // This class is used to get the username and password from the user
 {
     private String name;
     private String password;
 
-    public UserSign() {
+    /**
+     * Constructor
+     */
+    public UserSign()  // Constructor
+    {
     }
 
-    public String getName()
+    /**
+     * Get name
+     * @return name
+     */
+    public String getName() //get name
     {
         return name;
     }
-    public String getPassword()
+    /**
+     * Get password
+     * @return password
+     */
+    public String getPassword() //get password
     {
         return password;
     }
-    public void setName(String name) {
+    /**
+     * Set name
+     * @param name name
+     */
+    public void setName(String name)  //set name
+    {
         this.name = name;
     }
-    public void setPassword(String password) {
+    /**
+     * Set password
+     * @param password password
+     */
+    public void setPassword(String password)  //set password
+    {
         this.password = password;
     }
 }

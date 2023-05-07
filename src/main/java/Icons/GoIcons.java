@@ -1,16 +1,27 @@
 package Icons;
 
-public class GoIcons implements GO
+/**
+ * This class is used to set the icons for the vehicles
+ * @see GO
+ */
+public class GoIcons implements GO //icons for the vehicles
 {
 	private String lambo;
 	private String cabrio;
 	private String scooter;
 	private String motorbike;
+	/**
+	 * This is the constructor for the class
+	 */
 	public GoIcons()
 	{
 
 	}
-	public void checkType(String type)
+	/**
+	 * This method is used to set the icons for the vehicles
+	 * @param type This is the type of the vehicle
+	 */
+	public void checkType(String type) //check the type of the vehicle
 	{
 		if(type.equals("Car"))
 		{
@@ -23,39 +34,72 @@ public class GoIcons implements GO
 			setMotorbike();
 		}
 	}
-	public String getLambo()
+	/**
+	 * This method is used to get the icon for the vehicle
+	 * @return String This returns the icon for the vehicle
+	 */
+	public String getLambo() //get the icon for the vehicle
 	{
 		return lambo;
 	}
-	public void setLambo()
+	/**
+	 * This method is used to set the icon for the vehicle
+	 */
+	public void setLambo() //set the icon for the vehicle
 	{
 		this.lambo = "lambo.png";
 	}
-	public String getCabrio()
+	/**
+	 * This method is used to get the icon for the vehicle
+	 * @return String This returns the icon for the vehicle
+	 */
+	public String getCabrio() //get the icon for the vehicle
 	{
 		return cabrio;
 	}
-	public void setCabrio()
+	/**
+	 * This method is used to set the icon for the vehicle
+	 */
+	public void setCabrio() //set the icon for the vehicle
 	{
 		this.cabrio = "cabrio.png";
 	}
-	public String getScooter()
+	/**
+	 * This method is used to get the icon for the vehicle
+	 * @return String This returns the icon for the vehicle
+	 */
+	public String getScooter() //get the icon for the vehicle
 	{
 		return scooter;
 	}
-	public void setScooter()
+	/**
+	 * This method is used to set the icon for the vehicle
+	 */
+	public void setScooter() //set the icon for the vehicle
 	{
 		this.scooter = "scooter.png";
 	}
-	public String getMotorbike()
+	/**
+	 * This method is used to get the icon for the vehicle
+	 * @return String This returns the icon for the vehicle
+	 */
+	public String getMotorbike() //get the icon for the vehicle
 	{
 		return motorbike;
 	}
-	public void setMotorbike()
+	/**
+	 * This method is used to set the icon for the vehicle
+	 */
+	public void setMotorbike() //set the icon for the vehicle
 	{
 		this.motorbike = "motorbike.png";
 	}
-	public String random(String type)
+	/**
+	 * This method is used to randomize the icon for the vehicle
+	 * @param type This is the type of the vehicle
+	 * @return String This returns the icon for the vehicle
+	 */
+	public String random(String type) //randomize the icon for the vehicle
 	{
 		if(type.equals("Car"))
 		{

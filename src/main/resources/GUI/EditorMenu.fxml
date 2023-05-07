@@ -8,7 +8,7 @@
 
 <AnchorPane id="bg2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditorMenuController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="125.0" layoutY="198.0" prefHeight="244.0" prefWidth="110.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" layoutX="133.0" layoutY="250.0" spacing="10.0">
          <children>
             <Button id="button" fx:id="delR" mnemonicParsing="false" onAction="#deleteRouteClick" prefHeight="40.0" prefWidth="94.0" stylesheets="@style.css" text="Delete Route">
                <cursor>
@@ -31,22 +31,15 @@
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font></Button>
-            <Button id="button" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" stylesheets="@style.css">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button id="button" mnemonicParsing="false" onAction="#signOutClick" prefHeight="40.0" prefWidth="70.0" stylesheets="@style.css" text="Sign out">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Segoe UI Bold" size="13.0" />
-               </font></Button>
          </children>
       </VBox>
+      <Button id="button" layoutX="145.0" layoutY="530.0" mnemonicParsing="false" onAction="#signOutClick" prefHeight="40.0" prefWidth="70.0" stylesheets="@style.css" text="Sign out">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

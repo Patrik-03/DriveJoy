@@ -3,37 +3,76 @@ package Editor;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * This class is used to add and delete routes from the Routes.txt file
+ * @param <T> Generic type
+ */
 public class AddDeleteRoutes<T>
 {
-	public class AddRoutes
+	/**
+	 * Constructor
+	 */
+	public AddDeleteRoutes()
 	{
-		public void addRoute(T name, T distance, T badge, T type)
+	}
+	/**
+	 * This class is used to add routes to the Routes.txt file
+	 */
+	public class AddRoutes //class for adding routes
+	{
+		/**
+		 * Constructor
+		 */
+		public AddRoutes()
 		{
-			try
+		}
+		/**
+		 * This method is used to add routes to the Routes.txt file
+		 * @param name The name of the route
+		 * @param distance The distance of the route
+		 * @param badge The badge of the route
+		 * @param type The type of the route
+		 */
+		public void addRoute(T name, T distance, T badge, T type) //method for adding routes
+		{
+			try //try to add route
 			{
-				String[] parts = name.toString().split(" -> ");
-				FileWriter writer = new FileWriter("Routes.txt", true);
-				writer.write(parts[0] + " - " + parts[1] + " - " + name.toString() + " - " + distance.toString() + " - " + badge.toString() + " - " + type.toString());
-				writer.write("\n");
-				writer.close();
+				String[] parts = name.toString().split(" -> "); //split the route name into two parts
+				FileWriter writer = new FileWriter("Routes.txt", true); //create a file writer
+				writer.write(parts[0] + " - " + parts[1] + " - " + name.toString() + " - " + distance.toString() + " - " + badge.toString() + " - " + type.toString()); //write the route to the file
+				writer.write("\n"); //write a new line
+				writer.close(); //close the file writer
 			}
-			catch (Exception ex)
+			catch (Exception ex) //catch any exceptions
 			{
-				ex.printStackTrace();
+				ex.printStackTrace(); //print the stack trace
 			}
 		}
 	}
 
-	public class DeleteRoutes
+	/**
+	 * This class is used to delete routes from the Routes.txt file
+	 */
+	public class DeleteRoutes //class for deleting routes
 	{
+		/**
+		 * Constructor
+		 */
+		public DeleteRoutes()
+		{
+		}
+		/**
+		 * This method is used to delete routes from the Routes.txt file
+		 * @param name The name of the route
+		 */
 		public void deleteRoute(T name)
 		{
-			try
+			try //try to delete the route
 			{
-				StringBuilder oldContent = new StringBuilder();
-				FileReader file = new FileReader("Routes.txt");
-				Scanner scan = new Scanner(file);
-				while (scan.hasNextLine())
+				StringBuilder oldContent = new StringBuilder(); //create a string builder
+				FileReader file = new FileReader("Routes.txt"); //create a file reader
+				Scanner scan = new Scanner(file); //create a scanner
+				while (scan.hasNextLine()) //while there are still lines to read
 				{
 					String line = scan.nextLine(); // read the current line
 					if (line.contains(name.toString()))
@@ -45,19 +84,19 @@ public class AddDeleteRoutes<T>
 					{
 						oldContent.append(line); // keep the original line
 					}
-					if (scan.hasNextLine())
+					if (scan.hasNextLine()) //if there are still lines to read
 					{
-						oldContent.append(System.lineSeparator());
+						oldContent.append(System.lineSeparator()); //add a new line
 					}
 				}
-				BufferedWriter writer = new BufferedWriter(new FileWriter("Routes.txt"));
-				writer.write(oldContent.toString());
-				writer.close();
-				scan.close();
+				BufferedWriter writer = new BufferedWriter(new FileWriter("Routes.txt")); //create a buffered writer
+				writer.write(oldContent.toString()); //write the old content to the file
+				writer.close(); //close the buffered writer
+				scan.close(); //close the scanner
 			}
-			catch (IOException ex)
+			catch (IOException ex) //catch any exceptions
 			{
-				ex.printStackTrace();
+				ex.printStackTrace(); //print the stack trace
 			}
 		}
 	}
