@@ -5,4 +5,3 @@ Prato allo Stelvio - Passo dello Stelvio - Prato allo Stelvio -> Passo dello Ste
 Omiš - Seoca - Omiš -> Seoca - 18 - 70 - Motorbike
 Turčianske Teplice - Harmanec - Turčianske Teplice -> Harmanec - 26 - 14 - Car
 Hnúšťa - Ratková - Hnúšťa -> Ratková - 19 - 526 - Car
-BA - TT - BA -> TT - 50 - 66 - Car

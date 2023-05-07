@@ -17,7 +17,8 @@ public class DeleteRouteController
 	CheckBox confirm;
 	@FXML
 	ChoiceBox<String> routes;
-	AddDeleteRoutes addDeleteRoutes = new AddDeleteRoutes();
+	AddDeleteRoutes<Object> addDeleteRoutes = new AddDeleteRoutes<>();
+	AddDeleteRoutes<Object>.DeleteRoutes deleteRoutes = addDeleteRoutes.new DeleteRoutes();
 	DisplayOptions displayOptions = new DisplayOptions();
 	public void initialize()
 	{
@@ -40,7 +41,7 @@ public class DeleteRouteController
 		{
 			if(confirm.isSelected())
 			{
-				addDeleteRoutes.deleteRoute(routes.getValue());
+				deleteRoutes.deleteRoute(routes.getValue());
 				backB(actionEvent);
 			}
 			else

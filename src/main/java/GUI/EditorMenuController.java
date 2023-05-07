@@ -22,6 +22,7 @@ public class EditorMenuController
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
         stage.setTitle("Delete Route");
         stage.show();
     }

@@ -26,7 +26,8 @@ public class AddRouteController
 	TextField badge;
 	@FXML
 	ChoiceBox<String> type;
-	AddDeleteRoutes addRoutes = new AddDeleteRoutes();
+	AddDeleteRoutes<Object> addRoutes = new AddDeleteRoutes<>();
+	AddDeleteRoutes<Object>.AddRoutes addRoute = addRoutes.new AddRoutes();
 	public void initialize()
 	{
 		List<String> vehicleClasses = new ArrayList<>(); // Create a list to store the names of classes in the Vehicles package
@@ -75,7 +76,7 @@ public class AddRouteController
 	@FXML
 	protected void addClick()
 	{
-		addRoutes.addRoute(direction.getText(), length.getText(), badge.getText(), type.getValue());
+		addRoute.addRoute(direction.getText(), length.getText(), badge.getText(), type.getValue());
 		Stage stage = (Stage) type.getScene().getWindow();
 		stage.close();
 	}
