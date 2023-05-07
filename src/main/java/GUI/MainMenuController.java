@@ -4,6 +4,8 @@ import Icons.SetIcons;
 import User.*;
 import Routes.*;
 import Editor.*;
+import Vehicles.Car;
+import Vehicles.Motorbike;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

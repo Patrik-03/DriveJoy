@@ -126,5 +126,4 @@ public class DisplayOptions
     {
         return type[i];
     }
-
 }

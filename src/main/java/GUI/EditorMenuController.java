@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,11 +28,12 @@ public class EditorMenuController
     @FXML
     protected void createRouteClick(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateRoute.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddRoute.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
         stage.setTitle("Create Route");
         stage.show();
     }
@@ -43,6 +45,7 @@ public class EditorMenuController
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
         stage.setTitle("Delete User");
         stage.show();
     }
@@ -53,6 +56,7 @@ public class EditorMenuController
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("road.png"))));
         stage.setTitle("Drive Joy");
         stage.show();
     }

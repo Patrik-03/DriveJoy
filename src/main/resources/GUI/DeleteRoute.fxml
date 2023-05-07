@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DeleteRouteController">
+   <children>
+      <ChoiceBox id="textfield" fx:id="routes" layoutX="31.0" layoutY="72.0" prefHeight="27.0" prefWidth="237.0" stylesheets="@style.css" />
+      <CheckBox fx:id="confirm" layoutX="92.0" layoutY="110.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="114.0" text="Confirm delete" />
+      <Button id="button" layoutX="113.0" layoutY="140.0" mnemonicParsing="false" onAction="#deleteClick" prefHeight="38.0" prefWidth="74.0" stylesheets="@style.css" text="Delete">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button id="button" layoutX="9.0" layoutY="166.0" mnemonicParsing="false" onAction="#backB" stylesheets="@style.css" text="Back">
+         <font>
+            <Font name="Segoe UI Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="65.0" layoutY="38.0" prefHeight="18.0" text="Pick a route to be deleted" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+   </children>
+</AnchorPane>

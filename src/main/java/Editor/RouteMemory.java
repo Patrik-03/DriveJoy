@@ -78,16 +78,4 @@ public class RouteMemory
             deleteAll();
         }
     }
-
-    public void deleted(boolean successful)
-    {
-        if(successful)
-        {
-            System.out.println("Deleted successfully");
-        }
-        else
-        {
-            System.out.println("Unable to delete");
-        }
-    }
 }

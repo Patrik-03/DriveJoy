@@ -1,10 +1,11 @@
-package User;
+package Vehicles;
 
+import User.Vehicle;
 import javafx.scene.image.Image;
 
-public class Car extends Vehicle
+public class Motorbike extends Vehicle
 {
-    public Car()
+    public Motorbike()
     {
         super();
     }
@@ -19,8 +20,8 @@ public class Car extends Vehicle
         return image;
     }
     @Override
-    public void setType(String car)
+    public void setType(String motorbike)
     {
-        super.setType(car);
+        super.setType(motorbike);
     }
 }
