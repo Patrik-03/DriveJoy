@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="bgGO" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GoController">
    <children>
-      <Label id="search" fx:id="dest" layoutX="77.0" prefHeight="34.0" prefWidth="185.0" stylesheets="@style.css" textAlignment="CENTER">
+      <Label id="search" fx:id="dest" layoutX="77.0" prefHeight="35.0" stylesheets="@style.css" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>
-      <Label id="search" fx:id="start" layoutX="346.0" layoutY="70.0" prefHeight="72.0" prefWidth="143.0" stylesheets="@style.css" textAlignment="CENTER">
+      <Label id="search" fx:id="start" layoutX="346.0" layoutY="84.0" maxWidth="148.0" prefHeight="35.0" stylesheets="@style.css" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>
@@ -21,5 +22,35 @@
       <Label fx:id="Z12" layoutX="215.0" layoutY="80.0" prefHeight="17.0" prefWidth="25.0" />
       <Label fx:id="Z13" layoutX="91.0" layoutY="52.0" prefHeight="17.0" prefWidth="18.0" />
       <Label fx:id="Z15" layoutX="109.0" layoutY="35.0" prefHeight="17.0" prefWidth="18.0" />
+      <ImageView fitHeight="123.0" fitWidth="133.0" layoutX="215.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@forest.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="73.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="163.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="28.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="118.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="police" fitHeight="53.0" fitWidth="82.0" layoutX="126.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@police-car.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

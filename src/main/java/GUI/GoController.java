@@ -27,6 +27,8 @@ public class GoController //animation controller
 	@FXML
 	ImageView v;
 	@FXML
+	ImageView police;
+	@FXML
 	Label Z10;
 	@FXML
 	Label Z11;

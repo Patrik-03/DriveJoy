@@ -18,6 +18,7 @@ import org.controlsfx.control.textfield.TextFields;
 
 import java.io.*;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * The type Main menu controller.
@@ -44,8 +45,6 @@ public class MainMenuController //main menu controller
     @FXML
     private Label type;
     @FXML
-    private Label curves;
-    @FXML
     private Label welcome;
     @FXML
     private Menu latest;
@@ -58,13 +57,21 @@ public class MainMenuController //main menu controller
     @FXML
     private ImageView image;
     @FXML
-    private ImageView curvesNum;
+    private ImageView conditionIcon;
     @FXML
     private ImageView routeBadge;
     @FXML
     private ImageView distanceI;
     @FXML
     private ImageView routeI;
+    @FXML
+    private CheckBox good;
+    @FXML
+    private CheckBox bad;
+    @FXML
+    private CheckBox average;
+    @FXML
+    private Label condition;
     Vehicle v = new Vehicle();
     UserSign user;
     String veh;
@@ -91,6 +98,11 @@ public class MainMenuController //main menu controller
     {
         DisplayOptions displayOptions = new DisplayOptions();
         go.setVisible(false);
+        conditionIcon.setVisible(false);
+        good.setVisible(false);
+        bad.setVisible(false);
+        average.setVisible(false);
+        condition.setVisible(false);
         image.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("garage.png"))));
 
         Thread autocompleteThread = new Thread(() -> TextFields.bindAutoCompletion(searchField, displayOptions.locations)); //create thread for autocomplete
@@ -188,11 +200,32 @@ public class MainMenuController //main menu controller
         {
             if (v.set())
             {
+                good.setSelected(false);
+                bad.setSelected(false);
+                average.setSelected(false);
                 distance.setText(displayOptions.getDistance(displayOptions.getIndex(routeInput.getLocation())) + " km");
                 nameR.setText(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation())));
                 badge.setText(displayOptions.getBadge(displayOptions.getIndex(routeInput.getLocation())));
                 badge.setStyle("-fx-background-color: #2696f6;" + "-fx-background-radius: 5;" + "-fx-text-fill: #ffffff;");
-                curves.setText("Curves: ");
+                conditionIcon.setVisible(true);
+                good.setVisible(true);
+                bad.setVisible(true);
+                average.setVisible(true);
+                condition.setVisible(true);
+                Random rand = new Random();
+                int n = rand.nextInt(3);
+                if (n == 0)
+                {
+                    good.setSelected(true);
+                }
+                else if (n == 1)
+                {
+                    average.setSelected(true);
+                }
+                else
+                {
+                    bad.setSelected(true);
+                }
                 if (displayOptions.getType(displayOptions.getIndex(routeInput.getLocation())).equals(v.getType()))
                 {
                     type.setText("Your vehicle is perfect for this route");
@@ -206,7 +239,6 @@ public class MainMenuController //main menu controller
                 routeI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("tracking.png"))));
                 distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
                 routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
-                curvesNum.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("curved-lines.png"))));
                 routeMemory.addRoute(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation()))+ " Vehicle: " + v.getType());
                 go.setVisible(true);
             }
@@ -317,6 +349,18 @@ public class MainMenuController //main menu controller
             goController.setStart(searchField.getText());
             goController.setDest(nameR.getText().split(" -> ")[0].equals(searchField.getText()) ? nameR.getText().split(" -> ")[1] : nameR.getText().split(" -> ")[0]);
             goController.setVehicle(new Image(Objects.requireNonNull(getClass().getResourceAsStream(veh))));
+            //random police
+            Random random = new Random();
+            int police = random.nextInt(2);
+            if(police == 1)
+            {
+                goController.police.setVisible(true);
+            }
+            else
+            {
+                goController.police.setVisible(false);
+            }
+            System.out.println(police);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
