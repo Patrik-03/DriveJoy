@@ -4,7 +4,7 @@ package Icons;
  * This class is used to set the icons for the vehicles
  * @see GO
  */
-public class GoIcons implements GO //icons for the vehicles
+public class GoIcons implements GO //icons for the vehicles class implements GO interface
 {
 	private String lambo;
 	private String cabrio;

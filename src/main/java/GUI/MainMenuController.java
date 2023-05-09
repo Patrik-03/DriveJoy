@@ -24,7 +24,7 @@ import java.util.Random;
  * The type Main menu controller.
  * This class is used to control the main menu page.
  */
-public class MainMenuController //main menu controller
+public class MainMenuController
 {
     /**
      * Constructor.

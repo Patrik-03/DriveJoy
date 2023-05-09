@@ -3,10 +3,9 @@ package GUI;
 import Exception.EmptyDatabase;
 
 /**
- * Interface for the alert window
- * @see AlertBox
+ * Interface for the exceptions
  */
-public interface Alert //interface for the alert window
+public interface Alert
 {
 	/**
 	 * String constant for the error message
@@ -16,6 +15,8 @@ public interface Alert //interface for the alert window
 	/**
 	 * Method to display the alert window
 	 * @throws EmptyDatabase if the database is empty
+	 * @see EmptyDatabase
+	 * @see AlertBox
 	 */
 	default void alert() throws EmptyDatabase
 	{

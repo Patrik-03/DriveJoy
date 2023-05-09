@@ -54,6 +54,7 @@ public class AddDeleteRoutes<T>
 
 	/**
 	 * This class is used to delete routes from the Routes.txt file
+	 * @see Alert
 	 */
 	public class DeleteRoutes implements Alert
 	{
@@ -66,6 +67,7 @@ public class AddDeleteRoutes<T>
 		/**
 		 * This method is used to delete routes from the Routes.txt file
 		 * @param name The name of the route
+		 * @throws EmptyDatabase if the database is empty
 		 */
 		public void deleteRoute(T name) throws EmptyDatabase
 		{

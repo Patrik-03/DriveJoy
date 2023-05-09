@@ -145,6 +145,7 @@ public class GoController //animation controller
 	 */
 	private void arrived()
 	{
-		Alert alert = new AlertBox();
+		AlertBox alertBox = new AlertBox();
+		alertBox.display("You arrived at your destination!");
 	}
 }

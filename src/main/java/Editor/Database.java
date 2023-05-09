@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  * Class for storing user info
  * @see Editor
+ * @see Alert
  */
 public class Database implements Alert
 {
@@ -156,6 +157,8 @@ public class Database implements Alert
      * Method for deleting user
      * @param name username
      * @throws IOException if file not found
+     * @throws EmptyDatabase if database is empty
+     * @see EmptyDatabase
      */
     public void deleteUser(String name) throws IOException, EmptyDatabase //delete user
     {

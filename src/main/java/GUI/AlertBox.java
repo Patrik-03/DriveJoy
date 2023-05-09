@@ -21,11 +21,7 @@ import java.util.Objects;
  * It has a display method that takes a string as a parameter.
  * The display method is used to display the alert box.
  */
-/**
- * Interface for the alert window
- * @see Alert
- */
-public class AlertBox implements Alert // implements Alert interface
+public class AlertBox
 {
     /**
      * This is the constructor of the class.

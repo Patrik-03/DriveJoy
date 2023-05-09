@@ -1,13 +1,14 @@
 package Icons;
 /**
- * Interface for GO class
- * @see GO
+ * Interface for GOIcons class
+ * @see GoIcons
  */
 public interface GO // Interface for GO class
 {
 	/**
 	 * Method to check the type of the vehicle
 	 * @param type This is the type of the vehicle
+	 * @see GoIcons
 	 */
 	void checkType(String type); // Method to check the type of the vehicle
 	/**

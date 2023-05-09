@@ -8,7 +8,7 @@ import java.io.*;
  * This class is used to set the icons for the vehicles
  * @see java.io.Serializable //set the icons for the vehicles
  */
-public class SetIcons implements java.io.Serializable //set the icons for the vehicles
+public class SetIcons implements java.io.Serializable
 {
 	/**
 	 * This is the type of the vehicle
