@@ -27,7 +27,7 @@ public class EditorRoles extends EditorInput //class to check ID
     /**
      * This is the instance of the editor.
      */
-    Editor editor; //instance of the editor
+    EditorFactory editorFactory = new EditorFactory();
 
     /**
      * This is the constructor of the class.
@@ -37,7 +37,6 @@ public class EditorRoles extends EditorInput //class to check ID
     {
         super(id);
         this.ID = id;
-        this.editor = Editor.getInstance();
     }
     /**
      * This method is used to check the ID of the editor.
@@ -45,14 +44,12 @@ public class EditorRoles extends EditorInput //class to check ID
      */
     public void checkID() throws WrongIdException //method to check ID
     {
-        if(Objects.equals(super.getID(), editor.getID()))
+        if(Objects.equals(super.getID(), editorFactory.createEditor().getID()))
         {
-            this.name = editor.getName();
+            this.name = editorFactory.createEditor().getName();
         }
         else
         {
-            Alert alert = new AlertBox();
-            alert.alert();
             throw new WrongIdException("Wrong ID");
         }
     }

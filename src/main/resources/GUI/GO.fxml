@@ -12,7 +12,7 @@
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>
-      <Label id="search" fx:id="start" layoutX="346.0" layoutY="84.0" maxWidth="148.0" prefHeight="35.0" stylesheets="@style.css" textAlignment="CENTER">
+      <Label id="search" fx:id="start" layoutX="346.0" layoutY="84.0" maxWidth="148.0" stylesheets="@style.css" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>

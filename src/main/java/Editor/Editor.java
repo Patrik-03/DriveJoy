@@ -1,30 +1,17 @@
 package Editor;
 
 /**
- * Editor class is a singleton class that is used to get the id and name of the editor
- * @see Editor
+ * Editor class
+ * @see EditorFactory
  */
-public class Editor //editor class is a singleton
+public class Editor //editor class
 {
 	/**
-	 * instance of editor
+	 * constructor
 	 */
-	private static final Editor instance = new Editor(); //create an instance of editor
-	/**
-	 * private constructor
-	 */
-	private Editor() //private constructor
+	public Editor() //private constructor
 	{
 
-	}
-
-	/**
-	 * getInstance method returns the instance of editor
-	 * @return instance of editor
-	 */
-	public static Editor getInstance() //get instance of editor
-	{
-		return instance; //return instance
 	}
 	/**
 	 * getID method returns the id of editor

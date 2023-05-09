@@ -1,5 +1,7 @@
 package Editor;
 
+import GUI.Alert;
+import Exception.EmptyDatabase;
 import java.io.*;
 import java.util.Scanner;
 
@@ -53,7 +55,7 @@ public class AddDeleteRoutes<T>
 	/**
 	 * This class is used to delete routes from the Routes.txt file
 	 */
-	public class DeleteRoutes //class for deleting routes
+	public class DeleteRoutes implements Alert
 	{
 		/**
 		 * Constructor
@@ -65,8 +67,12 @@ public class AddDeleteRoutes<T>
 		 * This method is used to delete routes from the Routes.txt file
 		 * @param name The name of the route
 		 */
-		public void deleteRoute(T name)
+		public void deleteRoute(T name) throws EmptyDatabase
 		{
+			if (name.toString().equals("")) //if the name is empty
+			{
+				alert();
+			}
 			try //try to delete the route
 			{
 				StringBuilder oldContent = new StringBuilder(); //create a string builder

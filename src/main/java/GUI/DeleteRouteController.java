@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * @see DisplayOptions
  * @see EmptyDatabase
  */
-public class DeleteRouteController //delete route controller
+public class DeleteRouteController
 {
 	/**
 	 * The Stage.
@@ -58,13 +58,7 @@ public class DeleteRouteController //delete route controller
 	@FXML
 	protected void deleteClick(ActionEvent actionEvent) throws EmptyDatabase //delete the route
 	{
-		if(displayOptions.getName(0) == null)
-		{
-			AlertBox alert = new AlertBox();
-			alert.alert();
-			throw new EmptyDatabase("No routes in database");
-		}
-		else
+		if(displayOptions.getName(0) != null)
 		{
 			if(confirm.isSelected())
 			{
@@ -87,5 +81,4 @@ public class DeleteRouteController //delete route controller
 		Stage newStage = (Stage) ((javafx.scene.control.Button) actionEvent.getSource()).getScene().getWindow();
 		newStage.close();
 	}
-
 }

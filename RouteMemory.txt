@@ -1,18 +1,1 @@
 Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car
-Piešťany -> Topoľčany Vehicle: Car

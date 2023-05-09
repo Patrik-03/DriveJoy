@@ -1,5 +1,7 @@
 package GUI;
 
+import Exception.EmptyDatabase;
+
 /**
  * Interface for the alert window
  * @see AlertBox
@@ -9,17 +11,16 @@ public interface Alert //interface for the alert window
 	/**
 	 * String constant for the error message
 	 */
-	String ERROR = "ERROR";
+	String ERROR_MESSAGE = "Error";
+
 	/**
-	 * Display the alert window
-	 * @param message the message to display
+	 * Method to display the alert window
+	 * @throws EmptyDatabase if the database is empty
 	 */
-	void display(String message); //display the alert window
-	/**
-	 * Display the alert window
-	 */
-	default void alert() //default method to display the alert window
+	default void alert() throws EmptyDatabase
 	{
-		display(ERROR);
+		AlertBox alertBox = new AlertBox();
+		alertBox.display(ERROR_MESSAGE);
+		throw new EmptyDatabase("Empty Database");
 	}
 }

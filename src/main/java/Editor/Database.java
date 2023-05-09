@@ -1,5 +1,8 @@
 package Editor;
 
+import GUI.Alert;
+import Exception.EmptyDatabase;
+
 import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,7 +11,7 @@ import java.util.Scanner;
  * Class for storing user info
  * @see Editor
  */
-public class Database //class for storing user info
+public class Database implements Alert
 {
     /**
      * Constructor for Database
@@ -154,8 +157,12 @@ public class Database //class for storing user info
      * @param name username
      * @throws IOException if file not found
      */
-    public void deleteUser(String name) throws IOException //delete user
+    public void deleteUser(String name) throws IOException, EmptyDatabase //delete user
     {
+        if (name == null)
+        {
+            alert();
+        }
         StringBuilder oldContent = new StringBuilder();
         FileReader file = new FileReader("UserInfo.txt");
         Scanner scan = new Scanner(file);

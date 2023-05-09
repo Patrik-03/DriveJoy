@@ -56,25 +56,16 @@ public class DeleteUserController //delete user controller
 	 * @throws IOException the io exception
 	 * @throws EmptyDatabase the empty database
 	 */
-	public void deleteB(ActionEvent actionEvent) throws IOException, EmptyDatabase //delete button
+	public void deleteB(ActionEvent actionEvent) throws IOException, EmptyDatabase
 	{
-		if(database.getUsers().length == 0)
+		if (confirm.isSelected())
 		{
-			Alert alert = new AlertBox();
-			alert.alert();
-			throw new EmptyDatabase("No users in database");
+			database.deleteUser(users.getValue());
+			backB(actionEvent);
 		}
 		else
 		{
-			if(confirm.isSelected())
-			{
-				database.deleteUser(users.getValue());
-				backB(actionEvent);
-			}
-			else
-			{
-				confirm.setStyle("-fx-text-fill: red");
-			}
+			confirm.setStyle("-fx-text-fill: red");
 		}
 	}
 }
