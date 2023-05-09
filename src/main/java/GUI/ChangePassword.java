@@ -33,17 +33,14 @@ public class ChangePassword // change the password controller
     /**
      * The User sign.
      */
-    UserSign userSign;
+    private UserSign userSign;
     /**
      * Sets users name.
-     * @param name     the name
-     * @param password the password
+     * @param user the user
      */
-    public void setUserName(String name, String password) // set the username and password
+    public void setUser(UserSign user) // set the username and password
     {
-        userSign = new UserSign();
-        userSign.setName(name);
-        userSign.setPassword(password);
+        this.userSign = user;
     }
     /**
      * Change password.

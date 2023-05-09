@@ -26,6 +26,7 @@ import java.util.Random;
  */
 public class MainMenuController
 {
+
     /**
      * Constructor.
      */
@@ -75,6 +76,7 @@ public class MainMenuController
     Vehicle v = new Vehicle();
     UserSign user;
     String veh;
+    private String t;
     @FXML
     private Button go;
 
@@ -159,7 +161,7 @@ public class MainMenuController
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangePassword.fxml"));
             Parent root = loader.load();
             ChangePassword changePasswordController = loader.getController();
-            changePasswordController.setUserName(user.getName(), user.getPassword());
+            changePasswordController.setUser(user);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -198,7 +200,7 @@ public class MainMenuController
         }
         else
         {
-            if (v.set())
+            if (t != null)
             {
                 good.setSelected(false);
                 bad.setSelected(false);
@@ -226,7 +228,7 @@ public class MainMenuController
                 {
                     bad.setSelected(true);
                 }
-                if (displayOptions.getType(displayOptions.getIndex(routeInput.getLocation())).equals(v.getType()))
+                if (displayOptions.getType(displayOptions.getIndex(routeInput.getLocation())).equals(t))
                 {
                     type.setText("Your vehicle is perfect for this route");
                     type.setStyle("-fx-text-fill: #275227;");
@@ -311,8 +313,8 @@ public class MainMenuController
     {
         Car c = new Car();
         c.setType(car.getText());
-        v.setType(c.getType());
-        SetIcons setIcons = new SetIcons(v);
+        t = c.getType();
+        SetIcons setIcons = new SetIcons(c);
         setIcons.setIcons();
         veh = setIcons.getIcon();
         image.setImage(c.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("sport-car.png")))));
@@ -328,8 +330,8 @@ public class MainMenuController
     {
         Motorbike m = new Motorbike();
         m.setType(motorbike.getText());
-        v.setType(m.getType());
-        SetIcons setIcons = new SetIcons(v);
+        t = m.getType();
+        SetIcons setIcons = new SetIcons(m);
         setIcons.setIcons();
         veh = setIcons.getIcon();
         image.setImage(m.setGarage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("motorbike.png")))));

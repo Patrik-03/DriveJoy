@@ -96,6 +96,7 @@ public class GoIcons implements GO //icons for the vehicles class implements GO 
 	}
 	/**
 	 * This method is used to randomize the icon for the vehicle
+	 *
 	 * @param type This is the type of the vehicle
 	 * @return String This returns the icon for the vehicle
 	 */
