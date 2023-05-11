@@ -69,7 +69,7 @@ public class AddRouteController //controller for the add route window
 						if (classFile.isFile() && classFile.getName().endsWith(".class"))
 						{
 							String className = classFile.getName().replace(".class", "");
-							Class<?> clazz = Class.forName("Vehicles." + className);
+							Class<?> clazz = Class.forName("Vehicles." + className); // Get the class object for the class name
 							if (Vehicle.class.isAssignableFrom(clazz))
 							{
 								vehicleClasses.add(className);

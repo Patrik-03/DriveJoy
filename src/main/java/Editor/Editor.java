@@ -2,7 +2,6 @@ package Editor;
 
 /**
  * Editor class
- * @see EditorFactory
  */
 public class Editor //editor class
 {

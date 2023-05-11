@@ -1,17 +1,12 @@
 package Editor;
 
-/**
- * EditorFactory is a factory class that creates instances of Editor
- * @see Editor
- */
-public class EditorFactory //factory class for Editor
+public class EditorFactory
 {
-	/**
-	 * createEditor method creates a new instance of Editor
-	 * @return new instance of Editor
-	 */
-	public Editor createEditor() //create new instance of Editor
-	{
-		return new Editor(); //return new instance of Editor
-	}
+    /**
+     * This method is used to create an editor.
+     * @return the editor.
+     */
+    public Editor createEditor() {
+        return new Editor();
+    }
 }
