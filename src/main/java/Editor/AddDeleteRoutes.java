@@ -41,7 +41,7 @@ public class AddDeleteRoutes<T>
 			{
 				String[] parts = name.toString().split(" -> "); //split the route name into two parts
 				FileWriter writer = new FileWriter("Routes.txt", true); //create a file writer
-				writer.write(parts[0] + " - " + parts[1] + " - " + name.toString() + " - " + distance.toString() + " - " + badge.toString() + " - " + type.toString()); //write the route to the file
+				writer.write(parts[0] + " - " + parts[1] + " - " + name + " - " + distance.toString() + " - " + badge.toString() + " - " + type.toString()); //write the route to the file
 				writer.write("\n"); //write a new line
 				writer.close(); //close the file writer
 			}

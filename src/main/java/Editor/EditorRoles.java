@@ -1,7 +1,5 @@
 package Editor;
 import Exception.WrongIdException;
-import GUI.Alert;
-import GUI.AlertBox;
 
 import java.util.Objects;
 

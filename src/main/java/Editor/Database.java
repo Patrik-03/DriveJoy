@@ -83,7 +83,7 @@ public class Database implements Alert
      * @param name username
      * @return true if user exists, false if not
      */
-    public boolean checkUserUP(String name) //check if user exists if creating new user
+    public boolean checkUserUP(String name) //check if user exists when creating new user
     {
         if (file.exists())
         {

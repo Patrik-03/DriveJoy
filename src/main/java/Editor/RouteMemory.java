@@ -24,12 +24,13 @@ public class RouteMemory //this class is used to store the routes that the user 
     /**
      * This method is used to add a route to the file
      * @param destination The destination of the route
+     * @param vehicle The vehicle of the route
      * @throws IOException if the file is not found
      */
-    public void addRoute(String destination) throws IOException //add a route to the file
+    public void addRoute(String destination, String vehicle) throws IOException //add a route to the file
     {
         BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
-        out.write( destination);
+        out.write( destination + " Vehicle: " + vehicle);
         out.newLine();
         out.close();
     }

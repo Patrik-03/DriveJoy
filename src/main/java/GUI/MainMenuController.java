@@ -73,7 +73,6 @@ public class MainMenuController
     private CheckBox average;
     @FXML
     private Label condition;
-    Vehicle v = new Vehicle();
     UserSign user;
     String veh;
     private String t;
@@ -241,7 +240,7 @@ public class MainMenuController
                 routeI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("tracking.png"))));
                 distanceI.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("distance.png"))));
                 routeBadge.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("route.png"))));
-                routeMemory.addRoute(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation()))+ " Vehicle: " + v.getType());
+                routeMemory.addRoute(displayOptions.getName(displayOptions.getIndex(routeInput.getLocation())),t);
                 go.setVisible(true);
             }
             else
@@ -351,18 +350,10 @@ public class MainMenuController
             goController.setStart(searchField.getText());
             goController.setDest(nameR.getText().split(" -> ")[0].equals(searchField.getText()) ? nameR.getText().split(" -> ")[1] : nameR.getText().split(" -> ")[0]);
             goController.setVehicle(new Image(Objects.requireNonNull(getClass().getResourceAsStream(veh))));
-            //random police
+            //random police (easter egg)
             Random random = new Random();
             int police = random.nextInt(2);
-            if(police == 1)
-            {
-                goController.police.setVisible(true);
-            }
-            else
-            {
-                goController.police.setVisible(false);
-            }
-            System.out.println(police);
+            goController.police.setVisible(police == 1);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

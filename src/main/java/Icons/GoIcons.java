@@ -92,7 +92,7 @@ public class GoIcons implements GO //icons for the vehicles class implements GO 
 	 */
 	public void setMotorbike() //set the icon for the vehicle
 	{
-		this.motorbike = "motorbike.png";
+		this.motorbike = "motorbikeR.png";
 	}
 	/**
 	 * This method is used to randomize the icon for the vehicle
