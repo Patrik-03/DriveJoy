@@ -181,7 +181,7 @@ public class Database implements Alert
                 }
                 else
                 {
-                    oldContent.append(line); // keep the original line
+                    continue; // skip the line to be deleted
                 }
             }
             else
@@ -193,10 +193,12 @@ public class Database implements Alert
             }
         }
         BufferedWriter writer = new BufferedWriter(new FileWriter("UserInfo.txt"));
-        writer.write(oldContent.toString());
+        writer.write(oldContent.toString().trim()); // remove leading/trailing whitespaces
         writer.close();
         scan.close();
     }
+
+
     /**
      * Method for getting number of rows in file
      * @return number of rows

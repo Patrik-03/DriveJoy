@@ -2,6 +2,6 @@ Pezinok - Malacky - Pezinok -> Malacky - 32 - 503 - Motorbike
 Piešťany - Topoľčany - Piešťany -> Topoľčany - 33 - 499 - Car
 Štrba - Štrbské Pleso - Štrba -> Štrbské Pleso - 13 - 538 - Motorbike
 Prato allo Stelvio - Passo dello Stelvio - Prato allo Stelvio -> Passo dello Stelvio - 24 - SS38 - Car
-Omiš - Seoca - Omiš -> Seoca - 18 - 70 - Motorbike
 Turčianske Teplice - Harmanec - Turčianske Teplice -> Harmanec - 26 - 14 - Car
 Hnúšťa - Ratková - Hnúšťa -> Ratková - 19 - 526 - Car
+Omiš - Seoca - Omiš -> Seoca - 18 - 70 - Motorbike

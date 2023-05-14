@@ -71,39 +71,29 @@ public class AddDeleteRoutes<T>
 		 */
 		public void deleteRoute(T name) throws EmptyDatabase
 		{
-			if (name.toString().equals("")) //if the name is empty
-			{
+			if (name.toString().equals("")) { //if the name is empty
 				alert();
 			}
-			try //try to delete the route
-			{
+			try { //try to delete the route
 				StringBuilder oldContent = new StringBuilder(); //create a string builder
 				FileReader file = new FileReader("Routes.txt"); //create a file reader
 				Scanner scan = new Scanner(file); //create a scanner
-				while (scan.hasNextLine()) //while there are still lines to read
-				{
+				while (scan.hasNextLine()) { //while there are still lines to read
 					String line = scan.nextLine(); // read the current line
-					if (line.contains(name.toString()))
-					{
-						// if the line contains the string we want to remove
-						line = line.replace(line, ""); // remove the line
-					}
-					else
-					{
+					if (line.contains(name.toString())) { // if the line contains the string we want to remove
+						continue; // skip the line to be deleted
+					} else {
 						oldContent.append(line); // keep the original line
-					}
-					if (scan.hasNextLine()) //if there are still lines to read
-					{
-						oldContent.append(System.lineSeparator()); //add a new line
+						if (scan.hasNextLine()) { //if there are still lines to read
+							oldContent.append(System.lineSeparator()); //add a new line
+						}
 					}
 				}
 				BufferedWriter writer = new BufferedWriter(new FileWriter("Routes.txt")); //create a buffered writer
-				writer.write(oldContent.toString()); //write the old content to the file
+				writer.write(oldContent.toString().trim()); // write the updated content to the file
 				writer.close(); //close the buffered writer
 				scan.close(); //close the scanner
-			}
-			catch (IOException ex) //catch any exceptions
-			{
+			} catch (IOException ex) { //catch any exceptions
 				ex.printStackTrace(); //print the stack trace
 			}
 		}
