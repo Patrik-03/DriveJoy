@@ -2,3 +2,5 @@ Prato allo Stelvio -> Passo dello Stelvio Vehicle: Car
 Pezinok -> Malacky Vehicle: Motorbike
 Pezinok -> Malacky Vehicle: Motorbike
 Hnúšťa -> Ratková Vehicle: Motorbike
+Pezinok -> Malacky Vehicle: Car
+Pezinok -> Malacky Vehicle: Car
